@@ -1,6 +1,6 @@
 <?php
 
-namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
+namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
@@ -8,7 +8,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE_VIEW = 'Eadesigndev_AWB::index';
+    const ADMIN_RESOURCE_VIEW = 'Eadesigndev_Awb::index';
 
 
     /**
@@ -16,7 +16,7 @@ class Index extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Magento_Cms::page';
+    const ADMIN_RESOURCE = 'Eadesigndev_Awb::awb';
 
     /**
      * @var PageFactory
