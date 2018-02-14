@@ -4,10 +4,11 @@
   "description": "Payment method",
 
   "type": "magento2-module",
-  "version": "2.0.3",
+  "version": "2.2.5",
   "require": {
     "php": "~5.6.0|7.0.2|~7.0.6|~7.1.0",
-    "magento/framework": "^100.1.0 | ^101.0.0"
+    "magento/framework": "^100.1.0 | ^101.0.0",
+    "eadesignro/module-eacore": ">=0.2.6"
   },
   "autoload": {
     "files": [
@@ -16,5 +17,7 @@
     "psr-4": {
       "Eadesigndev\\AWB\\": ""
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
