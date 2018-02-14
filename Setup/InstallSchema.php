@@ -93,6 +93,73 @@ class InstallSchema implements InstallSchemaInterface
                 ['nullable' => false],
                 'Postcode'
             )->addColumn(
+                'carrier_id',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false,
+                    'default' => '0'],
+                'Carrier id'
+            )->addColumn(
+                'tip-serviciu',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => false],
+                'Payment method'
+            )->addColumn(
+                'plan_tarifar',
+                Table::TYPE_TEXT,
+                255,
+                [],
+                'Tariff plan'
+            )->addColumn(
+                'awb_pickup_id',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false],
+                'Pickup'
+            )->addColumn(
+                'plata_expeditie',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false],
+                'Delivery payment'
+            )->addColumn(
+                'greutate',
+                Table::TYPE_DECIMAL,
+                '10,2',
+                ['nullable' => false],
+                'Weight'
+            )->addColumn(
+                'colete',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false],
+                'Packages'
+            )->addColumn(
+                'plicuri',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false],
+                'Envelopes'
+            )->addColumn(
+                'valoare_comanda',
+                Table::TYPE_DECIMAL,
+                '12,2',
+                [],
+                'Order value'
+            )->addColumn(
+                'ramburs_cont_colector',
+                Table::TYPE_DECIMAL,
+                '10,2',
+                ['nullable' => false],
+                'Collector account ramburs'
+            )->addColumn(
+                'continut',
+                Table::TYPE_TEXT,
+                500,
+                ['nullable' => false],
+                'Content'
+            )->addColumn(
                 'livrare_sambata',
                 Table::TYPE_BOOLEAN,
                 null,
@@ -109,17 +176,19 @@ class InstallSchema implements InstallSchemaInterface
                     'default' => '0'],
                 'Store id'
             )->addColumn(
-                'plan_tarifar',
-                Table::TYPE_TEXT,
-                255,
-                [],
-                'Tariff plan'
+                'deschidere_colet',
+                Table::TYPE_BOOLEAN,
+                null,
+                ['unsigned' => true,
+                    'nullable' => false,
+                    'default' => '0'],
+                'Store id'
             )->addColumn(
-                'valoare_comanda',
-                Table::TYPE_DECIMAL,
-                '12,2',
+                'comentarii',
+                Table::TYPE_TEXT,
+                500,
                 [],
-                'Order value'
+                'Comments'
             )->addColumn(
                 'company',
                 Table::TYPE_TEXT,
