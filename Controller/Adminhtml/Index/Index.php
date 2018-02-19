@@ -8,8 +8,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE_VIEW = 'Eadesigndev_Awb::index';
-
 
     /**
      * Authorization level of a basic admin session

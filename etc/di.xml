@@ -2,4 +2,10 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+    <preference for="Eadesigndev\Awb\Api\Data\AwbInterface"
+                type="Eadesigndev\Awb\Model\Awb" />
+
+    <preference for="Eadesigndev\Awb\Api\AwbRepositoryInterface"
+                type="Eadesigndev\Awb\Model\AwbRepository" />
+
 </config>

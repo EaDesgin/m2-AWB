@@ -81,7 +81,7 @@ class InstallSchema implements InstallSchemaInterface
                 ['nullable' => false],
                 'Telephone number'
             )->addColumn(
-                'customer-email',
+                'customer_email',
                 Table::TYPE_TEXT,
                 255,
                 ['nullable' => false],
@@ -100,13 +100,13 @@ class InstallSchema implements InstallSchemaInterface
                     'default' => '0'],
                 'Carrier id'
             )->addColumn(
-                'tip-serviciu',
+                'payment_method',
                 Table::TYPE_TEXT,
                 255,
                 ['nullable' => false],
                 'Payment method'
             )->addColumn(
-                'plan_tarifar',
+                'tariff_plan',
                 Table::TYPE_TEXT,
                 255,
                 [],
@@ -118,49 +118,57 @@ class InstallSchema implements InstallSchemaInterface
                 ['nullable' => false],
                 'Pickup'
             )->addColumn(
-                'plata_expeditie',
+                'delivery_payment',
                 Table::TYPE_INTEGER,
                 19,
                 ['nullable' => false],
                 'Delivery payment'
             )->addColumn(
-                'greutate',
+                'weight',
                 Table::TYPE_DECIMAL,
                 '10,2',
                 ['nullable' => false],
                 'Weight'
             )->addColumn(
-                'colete',
+                'packages',
                 Table::TYPE_INTEGER,
                 19,
                 ['nullable' => false],
                 'Packages'
             )->addColumn(
-                'plicuri',
+                'envelopes',
                 Table::TYPE_INTEGER,
                 19,
                 ['nullable' => false],
                 'Envelopes'
             )->addColumn(
-                'valoare_comanda',
+                'order_value',
                 Table::TYPE_DECIMAL,
                 '12,2',
                 [],
                 'Order value'
             )->addColumn(
-                'ramburs_cont_colector',
+                'repayment_value',
                 Table::TYPE_DECIMAL,
                 '10,2',
                 ['nullable' => false],
-                'Collector account ramburs'
+                'Collector account repayment'
             )->addColumn(
-                'continut',
+                'content',
                 Table::TYPE_TEXT,
                 500,
                 ['nullable' => false],
                 'Content'
             )->addColumn(
-                'livrare_sambata',
+                'delivery_saturday',
+                Table::TYPE_BOOLEAN,
+                null,
+                ['unsigned' => true,
+                    'nullable' => false,
+                    'default' => '0'],
+                'Delivery saturday'
+            )->addColumn(
+                'open_package',
                 Table::TYPE_BOOLEAN,
                 null,
                 ['unsigned' => true,
@@ -168,29 +176,13 @@ class InstallSchema implements InstallSchemaInterface
                     'default' => '0'],
                 'Open package'
             )->addColumn(
-                'deschidere_colet',
-                Table::TYPE_BOOLEAN,
-                null,
-                ['unsigned' => true,
-                    'nullable' => false,
-                    'default' => '0'],
-                'Store id'
-            )->addColumn(
-                'deschidere_colet',
-                Table::TYPE_BOOLEAN,
-                null,
-                ['unsigned' => true,
-                    'nullable' => false,
-                    'default' => '0'],
-                'Store id'
-            )->addColumn(
-                'comentarii',
+                'comments',
                 Table::TYPE_TEXT,
                 500,
                 [],
                 'Comments'
             )->addColumn(
-                'company',
+                'delivery_company',
                 Table::TYPE_TEXT,
                 500,
                 [],
