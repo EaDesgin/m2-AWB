@@ -43,6 +43,21 @@ class Awb extends AbstractModel implements AwbInterface
         return $this->getData(AwbInterface::IS_ACTIVE);
     }
 
+    public function getCreatedAt()
+    {
+        return $this->getData(AwbInterface::CREATED_AT);
+    }
+
+    public function getOrderId()
+    {
+        return $this->getData(AwbInterface::ORDER_ID);
+    }
+
+    public function getShippingId()
+    {
+        return $this->getData(AwbInterface::SHIPPING_ID);
+    }
+
     public function getRecipient()
     {
         return $this->getData(AwbInterface::RECIPIENT);
@@ -153,6 +168,11 @@ class Awb extends AbstractModel implements AwbInterface
         return $this->getData(AwbInterface::COMMENTS);
     }
 
+    public function getStatus()
+    {
+        return $this->getData(AwbInterface::STATUS);
+    }
+
     public function getDeliveryCompany()
     {
         return $this->getData(AwbInterface::DELIVERY_COMPANY);
@@ -168,6 +188,21 @@ class Awb extends AbstractModel implements AwbInterface
     public function setIsActive($isActive)
     {
         $this->setData(AwbInterface::IS_ACTIVE, $isActive);
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->setData(AwbInterface::CREATED_AT, $createdAt);
+    }
+
+    public function setOrderId($orderId)
+    {
+        $this->setData(AwbInterface::ORDER_ID, $orderId);
+    }
+
+    public function setShippingId($shippingId)
+    {
+        $this->setData(AwbInterface::SHIPPING_ID, $shippingId);
     }
 
     public function setRecipient($Recipient)
@@ -278,6 +313,11 @@ class Awb extends AbstractModel implements AwbInterface
     public function setComments($Comments)
     {
         $this->setData(AwbInterface::COMMENTS, $Comments);
+    }
+
+    public function setStatus($Status)
+    {
+        $this->setData(AwbInterface::STATUS, $Status);
     }
 
     public function setDeliveryCompany($DeliveryCompany)

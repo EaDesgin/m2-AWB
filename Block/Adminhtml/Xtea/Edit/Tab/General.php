@@ -74,13 +74,30 @@ class General extends Generic implements TabInterface
             $fieldSet->addField('recipient', 'hidden', ['name' => 'recipient']);
         }
 
+        if ($inputType = $model->getRecipient('recipient')) {
+        }
+
         $fieldSet->addField(
             'recipient',
             'text',
             [
-                'name' => 'customer_name',
+                'name' => 'recipient',
                 'label' => __('Recipient'),
                 'title' => __('Recipient'),
+                'required' => true,
+            ]
+        );
+
+        if ($inputType = $model->getCountryId('country_id')) {
+        }
+
+        $fieldSet->addField(
+            'country_id',
+            'text',
+            [
+                'name' => 'country_id',
+                'label' => __('Country'),
+                'title' => __('Country'),
                 'required' => true,
             ]
         );

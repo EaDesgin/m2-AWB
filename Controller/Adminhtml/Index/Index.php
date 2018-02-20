@@ -42,7 +42,7 @@ class Index extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magento_Cms::cms_page');
+        $resultPage->setActiveMenu(self::ADMIN_RESOURCE);
         $resultPage->addBreadcrumb(__('CMS'), __('CMS'));
         $resultPage->addBreadcrumb(__('Manage Lista AWB'), __('Manage Lista AWB'));
         $resultPage->getConfig()->getTitle()->prepend(__('Lista AWB'));
@@ -51,5 +51,13 @@ class Index extends \Magento\Backend\App\Action
         $dataPersistor->clear('cms_page');
 
         return $resultPage;
+    }
+
+    /**
+     * @return bool
+     */
+    public function _isAllowed()
+    {
+        return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 }

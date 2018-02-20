@@ -4,8 +4,8 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <!--<uiComponent name="xtea_templates_listing"/>-->
-            <block class="Eadesigndev\Awb\Block\Adminhtml\AddButton" name="template_list"/>
+            <uiComponent name="xtea_fields_listing"/>
+            <!--<block class="Eadesigndev\Awb\Block\Adminhtml\AddButton" name="template_list"/>-->
         </referenceContainer>
     </body>
 </page>

@@ -10,6 +10,9 @@ interface AwbInterface
 {
     const ENTITY_ID = 'entity_id';
     const IS_ACTIVE = 'is_active';
+    const CREATED_AT = 'created_at';
+    const ORDER_ID = 'order_id';
+    const SHIPPING_ID = 'shipping_id';
     const RECIPIENT = 'recipient';
     const COUNTRY_ID = 'country_id';
     const REGION_ID = 'region_id';
@@ -32,6 +35,7 @@ interface AwbInterface
     const DELIVERY_SATURDAY = 'delivery_saturday';
     const OPEN_PACKAGE = 'open_package';
     const COMMENTS = 'comments';
+    const STATUS = 'status';
     const DELIVERY_COMPANY = 'delivery_company';
 
 
@@ -39,6 +43,12 @@ interface AwbInterface
     public function getId();
 
     public function getIsActive();
+
+    public function getCreatedAt();
+
+    public function getOrderId();
+
+    public function getShippingId();
 
     public function getRecipient();
 
@@ -84,6 +94,8 @@ interface AwbInterface
 
     public function getComments();
 
+    public function getStatus();
+
     public function getDeliveryCompany();
 
 
@@ -91,6 +103,12 @@ interface AwbInterface
     public function setId($entityId);
 
     public function setIsActive($isActive);
+
+    public function setCreatedAt($CreatedAt);
+
+    public function setOrderId($OrderId);
+
+    public function setShippingId($ShippingId);
 
     public function setRecipient($Recipient);
 
@@ -135,6 +153,8 @@ interface AwbInterface
     public function setOpenPackage($OpenPackage);
 
     public function setComments($Comments);
+
+    public function setStatus($Status);
 
     public function setDeliveryCompany($DeliveryCompany);
 

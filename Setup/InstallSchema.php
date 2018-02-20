@@ -45,6 +45,26 @@ class InstallSchema implements InstallSchemaInterface
                     'default' => '1'],
                 'Is Active'
             )->addColumn(
+                'created_at',
+                Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
+                'Created At'
+            )->addColumn(
+                'order_id',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false,
+                    'default' => '0'],
+                'Order id'
+            )->addColumn(
+                'shipping_id',
+                Table::TYPE_INTEGER,
+                19,
+                ['nullable' => false,
+                    'default' => '0'],
+                'Shipping id'
+            )->addColumn(
                 'recipient',
                 Table::TYPE_TEXT,
                 255,
@@ -165,7 +185,8 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['unsigned' => true,
                     'nullable' => false,
-                    'default' => '0'],
+                    'default' => '0'
+                ],
                 'Delivery saturday'
             )->addColumn(
                 'open_package',
@@ -173,7 +194,8 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['unsigned' => true,
                     'nullable' => false,
-                    'default' => '0'],
+                    'default' => '0'
+                ],
                 'Open package'
             )->addColumn(
                 'comments',
@@ -181,6 +203,15 @@ class InstallSchema implements InstallSchemaInterface
                 500,
                 [],
                 'Comments'
+            )->addColumn(
+                'status',
+                Table::TYPE_INTEGER,
+                19,
+                null,
+                ['unsigned' => true,
+                    'nullable' => false,
+                    'default' => '0'],
+                'Status'
             )->addColumn(
                 'delivery_company',
                 Table::TYPE_TEXT,
