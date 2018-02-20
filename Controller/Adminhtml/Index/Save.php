@@ -49,7 +49,7 @@ class Save extends Action
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $id = $this->getRequest()->getParam('id');
+            $id = $this->getRequest()->getParam('entity_id');
             if ($id) {
                 /** @var Awb $model */
                 $model = $this->awbRepository->getById($id);
@@ -83,7 +83,7 @@ class Save extends Action
 
             $this->dataPersistor->set('awb_data', $data);
             return $resultRedirect
-                ->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
+                ->setPath('*/*/edit', ['entity_id' => $this->getRequest()->getParam('entity_id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }

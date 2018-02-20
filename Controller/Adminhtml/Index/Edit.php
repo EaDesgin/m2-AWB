@@ -53,7 +53,7 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('entity_id');
         if ($id) {
             $model = $this->awbRepository->getById($id);
             if (!$model->getId()) {

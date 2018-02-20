@@ -70,9 +70,6 @@ class General extends Generic implements TabInterface
             ['legend' => __('Info')]
         );
 
-        if ($model->getRecipient()) {
-            $fieldSet->addField('recipient', 'hidden', ['name' => 'recipient']);
-        }
 
         if ($inputType = $model->getRecipient('recipient')) {
         }
@@ -186,6 +183,10 @@ class General extends Generic implements TabInterface
             ]
         );
 
+        if ($model->getId()) {
+            $fieldSet->addField('entity_id', 'hidden', ['name' => 'entity_id']);
+        }
+
         $form->setValues($model->getData());
         $this->setForm($form);
 
@@ -227,4 +228,6 @@ class General extends Generic implements TabInterface
     {
         return false;
     }
+
+
 }
