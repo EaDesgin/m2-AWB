@@ -63,17 +63,6 @@ class PostActions extends Column
                         ),
                         'label' => __('Edit')
                     ];
-                    $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(
-                            self::TEMPLATE_DELETE,
-                            ['entity_id' => $item['entity_id']]
-                        ),
-                        'label' => __('Delete'),
-                        'confirm' => [
-                            'title' => __('Delete "${ $.$data.title }"'),
-                            'message' => __('Are you sure you wan\'t to delete a "${ $.$data.title }" record?')
-                        ]
-                    ];
                 }
             }
         }

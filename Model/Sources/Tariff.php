@@ -8,12 +8,19 @@ namespace Eadesigndev\Awb\Model\Sources;
  */
 class Tariff extends AbstractSource
 {
-    const ACT = 1;
-
+    /**
+     * DeliveryPayment
+     */
+    const ACT = 48654;
+    const MKT = 64252;
+    /**
+     * @return array
+     */
     public function getAvailable()
     {
         return [
-            self::ACT => __('test'),
+            self::ACT => __('ACT ADD 02.03.2017'),
+            self::MKT => __('Tarif MKT Place 5106'),
         ];
     }
 }

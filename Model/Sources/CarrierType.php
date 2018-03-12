@@ -8,9 +8,14 @@ namespace Eadesigndev\Awb\Model\Sources;
  */
 class CarrierType extends AbstractSource
 {
-    const URGENT_CURRIER = 1;
-    const FAN_CURRIER = 2;
-
+    /**
+     * CarrierType
+     */
+    const URGENT_CURRIER = 0;
+    const FAN_CURRIER = 1;
+    /**
+     * @return array
+     */
     public function getAvailable()
     {
         return [
