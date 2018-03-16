@@ -58,7 +58,15 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $enabled = $this->dataHelper->isEnabled();
+
+
+        $enabledAwb = $this->dataHelper->isEnabled();
+
+        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
+
+        $userAccount = $this->dataHelper->isUserAccount();
+
+        $clientId = $this->dataHelper->isClientId();
 
         $id = $this->getRequest()->getParam('entity_id');
         if ($id) {
@@ -78,7 +86,6 @@ class Edit extends \Magento\Backend\App\Action
             $model->setData($data);
         }
         $this->registry->register('awb_data', $model);
-
 
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
