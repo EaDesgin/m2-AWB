@@ -35,19 +35,19 @@
                 <item name="template" xsi:type="string">ui/grid/toolbar</item>
             </item>
         </argument>
-        <bookmark name="bookmarks">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/bookmarks/bookmarks</item>
-                    <item name="displayArea" xsi:type="string">dataGridActions</item>
-                    <item name="storageConfig" xsi:type="array">
-                        <item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>
-                        <item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>
-                        <item name="namespace" xsi:type="string">xtea_fields_listing</item>
-                    </item>
-                </item>
-            </argument>
-        </bookmark>
+        <!--<bookmark name="bookmarks">-->
+            <!--<argument name="data" xsi:type="array">-->
+                <!--<item name="config" xsi:type="array">-->
+                    <!--<item name="component" xsi:type="string">Magento_Ui/js/grid/controls/bookmarks/bookmarks</item>-->
+                    <!--<item name="displayArea" xsi:type="string">dataGridActions</item>-->
+                    <!--<item name="storageConfig" xsi:type="array">-->
+                        <!--<item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>-->
+                        <!--<item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>-->
+                        <!--<item name="namespace" xsi:type="string">xtea_fields_listing</item>-->
+                    <!--</item>-->
+                <!--</item>-->
+            <!--</argument>-->
+        <!--</bookmark>-->
         <container name="columns_controls">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -233,45 +233,6 @@
                 </argument>
             </filterSelect>
         </filters>
-        <massaction name="listing_massaction">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">xtea_fields_listing.xtea_fields_listing.fields_columns.ids</item>
-                    <item name="indexField" xsi:type="string">entity_id</item>
-                </item>
-            </argument>
-            <action name="delete">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">delete</item>
-                        <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="eadesign_pdf/templates/massDelete"/>
-                        <item name="confirm" xsi:type="array">
-                            <item name="title" xsi:type="string" translate="true">Delete items</item>
-                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
-                        </item>
-                    </item>
-                </argument>
-            </action>
-            <action name="disable">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">disable</item>
-                        <item name="label" xsi:type="string" translate="true">Disable</item>
-                        <item name="url" xsi:type="url" path="eadesign_pdf/templates/massDisable"/>
-                    </item>
-                </argument>
-            </action>
-            <action name="enable">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">enable</item>
-                        <item name="label" xsi:type="string" translate="true">Enable</item>
-                        <item name="url" xsi:type="url" path="eadesign_pdf/templates/massEnable"/>
-                    </item>
-                </argument>
-            </action>
-        </massaction>
         <paging name="listing_paging">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -333,17 +294,24 @@
             </item>
         </argument>
 
-        <selectionsColumn name="ids">
+        <!--<selectionsColumn name="ids">-->
+            <!--<argument name="data" xsi:type="array">-->
+                <!--<item name="config" xsi:type="array">-->
+                    <!--<item name="resizeEnabled" xsi:type="boolean">false</item>-->
+                    <!--<item name="resizeDefaultWidth" xsi:type="string">55</item>-->
+                    <!--<item name="indexField" xsi:type="string">entity_id</item>-->
+                <!--</item>-->
+            <!--</argument>-->
+        <!--</selectionsColumn>-->
+
+        <column name="entity_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="resizeEnabled" xsi:type="boolean">false</item>
-                    <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
                 </item>
             </argument>
-        </selectionsColumn>
-
-
+        </column>
         <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -371,12 +339,16 @@
             </argument>
         </column>
         <column name="carrier_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Carrier</item>
-                </item>
-            </argument>
+        <argument name="data" xsi:type="array">
+            <item name="options" xsi:type="object">Eadesigndev\Awb\Model\Sources\CarrierType</item>
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">select</item>
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                <item name="editor" xsi:type="string">select</item>
+                <item name="dataType" xsi:type="string">select</item>
+                <item name="label" xsi:type="string" translate="true">Type</item>
+            </item>
+        </argument>
         </column>
         <column name="awb_pickup_id">
             <argument name="data" xsi:type="array">
@@ -412,12 +384,24 @@
         </column>
         <column name="delivery_payment">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Eadesigndev\Awb\Model\Sources\DeliveryPayment</item>
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Delivery payment</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Type</item>
                 </item>
             </argument>
         </column>
+        <!--<column name="delivery_payment">-->
+            <!--<argument name="data" xsi:type="array">-->
+                <!--<item name="config" xsi:type="array">-->
+                    <!--<item name="filter" xsi:type="string">text</item>-->
+                    <!--<item name="label" xsi:type="string" translate="true">Delivery payment</item>-->
+                <!--</item>-->
+            <!--</argument>-->
+        <!--</column>-->
         <column name="order_value">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -443,14 +427,7 @@
             </argument>
         </column>
 
-        <column name="entity_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">textRange</item>
-                    <item name="label" xsi:type="string" translate="true">ID</item>
-                </item>
-            </argument>
-        </column>
+
         <actionsColumn name="actions" class="Eadesigndev\Awb\Ui\Component\Listing\Column\PostActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

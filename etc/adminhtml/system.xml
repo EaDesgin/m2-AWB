@@ -14,6 +14,123 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
+            <group id="urgent_courier" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Urgent Courier</label>
+                <field id="enabled_urgent" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment>If enabled, order PDFs will be customized by your settings made at "Manage PDF Templates". Also, bulk actions to print your customized PDFs will show up in the grid.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="user_account_urgent" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Account</label>
+                </field>
+                <field id="user_password_urgent" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Password</label>
+                </field>
+                <field id="tariff_plan" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tariff Plan</label>
+                    <source_model>Eadesigndev\Awb\Model\Sources\Tariff</source_model>
+                </field>
+                <field id="pickup_id" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pick-up Id</label>
+                    <source_model>Eadesigndev\Awb\Model\Sources\PickupId</source_model>
+                </field>
+                <field id="delivery_payment_urgent" translate="label comment" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delivery Payment</label>
+                    <source_model>Eadesigndev\Awb\Model\Sources\DeliveryPayment</source_model>
+                </field>
+                <field id="payment_method" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="open_package" translate="label comment" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Open Package</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_value" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Insurance</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="delivery_saturday" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday Delivery</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="package_type" translate="label comment" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Package Type</label>
+                    <source_model>Eadesigndev\Awb\Model\Sources\PackageType</source_model>
+                </field>
+            </group>
+            <group id="fan_courier" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fan Courier</label>
+                <field id="enabled_fan" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <comment>Necesar pentru identificarea operatorului de curierat.
+                        Exemplu: FAN Courier
+                    </comment>
+                </field>
+                <group id="authentication" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Authentication</label>
+                    <field id="client_id" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Client Id</label>
+                    </field>
+                    <field id="user_account_fan" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>User Account</label>
+                    </field>
+                    <field id="user_password_fan" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>User Password</label>
+                    </field>
+                    <field id="awb_confirmation" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>AWB Confirmation by Admin</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                </group>
+                <group id="awb_option" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Awb Option</label>
+                    <field id="shipping_parcels" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Shipping Parcels</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="parcels_number" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Parcels Numbers/AWB</label>
+                    </field>
+                    <field id="delivery_payment_fan" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Delivery payments on destionation</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="price_without_vat" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Display price without VAT</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="rates_foreign_currency" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Base rates in foreign currency</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>A se activa doar daca tarifele produselor sunt in alta valuta fata de SubTotal.
+                            SubTotal trebuie sa fie obligatoriu in RON
+                        </comment>
+                    </field>
+                    <field id="hide_shipping_charge" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Hide the shipping charge</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="free_shipping_amount" translate="label comment"  sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Minimum free shipping amount in Bucharest</label>
+                        <comment>Completati o valoare diferita de 0 pentru ascunderea taxei de transport la comenzi ce depasesc aceasta valoare. Exemplu: 100</comment>
+                    </field>
+                    <field id="fixed_amount" translate="label comment"  sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show Fixed Amount</label>
+                        <comment>Completati o valoare diferita de 0 pentru afisarea sumei fixe la taxa de transport. Exemplu: 10</comment>
+                    </field>
+                    <field id="cash_on_delivery_refunds" translate="label comment"  sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Only Cash On Delivery Refunds</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Atentie! Aceasta optiune este valabila doar daca modalitatea de plata este selectata inainte de calcularea costului de transport.</comment>
+                    </field>
+                </group>
+            </group>
         </section>
     </system>
 </config>

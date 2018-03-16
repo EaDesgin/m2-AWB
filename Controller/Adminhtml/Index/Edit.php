@@ -4,6 +4,7 @@ namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
 
 use Eadesigndev\Awb\Api\AwbRepositoryInterface;
 use Eadesigndev\Awb\Model\AwbFactory;
+use Eadesigndev\Awb\Helper\Data as DataHelper;
 use Magento\Framework\Registry;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\Session;
@@ -31,18 +32,22 @@ class Edit extends \Magento\Backend\App\Action
 
     private $session;
 
+    private $dataHelper;
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         AwbRepositoryInterface $awbRepository,
         AwbFactory $awbFactory,
-        Registry $registry
+        Registry $registry,
+        DataHelper $dataHelper
     ) {
         $this->resultPageFactory = $resultPageFactory;
-        $this->awbRepository  = $awbRepository;
-        $this->awbFactory     = $awbFactory;
+        $this->awbRepository     = $awbRepository;
+        $this->awbFactory        = $awbFactory;
         $this->registry          = $registry;
         $this->session           = $context->getSession();
+        $this->dataHelper        = $dataHelper;
         parent::__construct($context);
     }
 
@@ -53,6 +58,16 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+
+
+        $enabledAwb = $this->dataHelper->isEnabled();
+
+        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
+
+        $userAccount = $this->dataHelper->isUserAccount();
+
+        $clientId = $this->dataHelper->isClientId();
+
         $id = $this->getRequest()->getParam('entity_id');
         if ($id) {
             $model = $this->awbRepository->getById($id);
@@ -71,7 +86,6 @@ class Edit extends \Magento\Backend\App\Action
             $model->setData($data);
         }
         $this->registry->register('awb_data', $model);
-
 
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
