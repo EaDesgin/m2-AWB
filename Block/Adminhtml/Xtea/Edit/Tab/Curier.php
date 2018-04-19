@@ -127,7 +127,7 @@ class Curier extends Generic implements TabInterface
             ]
         );
 
-
+        $types = $this->paymentMethod->getAvailable();
 
         $fieldSet->addField(
             'payment_method',
@@ -136,7 +136,7 @@ class Curier extends Generic implements TabInterface
                 'name' => 'payment_method',
                 'label' => __('Payment Method(Collector account/Standard)'),
                 'title' => __('Payment Method(Collector account/Standard)'),
-                'values' => $this->yesNo->toOptionArray(),
+                'values' => $types,
                 'required' => true,
             ]
         );

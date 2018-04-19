@@ -41,7 +41,7 @@
                 </field>
                 <field id="payment_method" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Payment Method</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <source_model>Eadesigndev\Awb\Model\Sources\PaymentMethod</source_model>
                 </field>
                 <field id="open_package" translate="label comment" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Open Package</label>
