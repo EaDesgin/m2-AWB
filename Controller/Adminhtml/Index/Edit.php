@@ -58,15 +58,13 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-
-
-        $enabledAwb = $this->dataHelper->isEnabled();
-
-        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
-
-        $userAccount = $this->dataHelper->isUserAccount();
-
-        $clientId = $this->dataHelper->isClientId();
+//        $enabledAwb = $this->dataHelper->isEnabled();
+//
+//        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
+//
+//        $userAccount = $this->dataHelper->isUserAccount();
+//
+//        $clientId = $this->dataHelper->isClientId();
 
         $id = $this->getRequest()->getParam('entity_id');
         if ($id) {
@@ -99,5 +97,12 @@ class Edit extends \Magento\Backend\App\Action
         $dataPersistor->clear('cms_page');
 
         return $resultPage;
+    }
+    /**
+     * @return bool
+     */
+    public function _isAllowed()
+    {
+        return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 }

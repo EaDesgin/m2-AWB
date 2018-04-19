@@ -3,6 +3,7 @@
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea;
 
 use Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Buttons\DuplicateButton;
+use Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Buttons\AprobaAwb;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Backend\Block\Widget\Form\Container;
 use Magento\Framework\Registry;
@@ -16,12 +17,13 @@ class Edit extends Container
 
     private $duplicateButton;
 
+    private $aprobaAwb;
+
     /**
      * Core registry
-     *
      * @var Registry
-     *
      * @var DuplicateButton
+     * @var AprobaAwb
      */
 
 
@@ -32,11 +34,12 @@ class Edit extends Container
         Context $context,
         Registry $registry,
         DuplicateButton $duplicateButton,
+        AprobaAwb $aprobaAwb,
         array $data = []
-    )
-    {
+    ) {
         $this->coreRegistry = $registry;
         $this->duplicateButton = $duplicateButton;
+        $this->aprobaAwb = $aprobaAwb;
         parent::__construct($context, $data, $duplicateButton);
     }
 
@@ -52,14 +55,19 @@ class Edit extends Container
 
         parent::_construct();
 
-        $this->buttonList->update('save', 'label', __('Save template'));
+        $this->buttonList->update('save', 'label', __('Save Awb'));
 
         $duplicate = $this->duplicateButton->getButtonData();
 
         $this->buttonList->add(
             'duplicate',
             $duplicate
+        );
+        $aproba = $this->aprobaAwb->getButtonData();
 
+        $this->buttonList->add(
+            'aproba_awb',
+            $aproba
         );
 
         $this->buttonList->add(

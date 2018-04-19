@@ -81,7 +81,8 @@ class Data extends AbstractHelper
      */
     public function __construct(
         Context $context
-    ) {
+    )
+    {
         $this->config = $context->getScopeConfig();
         parent::__construct($context);
     }
@@ -98,111 +99,138 @@ class Data extends AbstractHelper
         );
     }
 
-    public function isEnabled($enableAwb = self::ENABLED){
-       return $this->getConfig($enableAwb);
+    public function isEnabled($enableAwb = self::ENABLED)
+    {
+        return $this->getConfig($enableAwb);
     }
 
-    public function isEnabledUrgent($enabledUrgent = self::ENABLED_URGENT){
+    public function isEnabledUrgent($enabledUrgent = self::ENABLED_URGENT)
+    {
         return $this->getConfig($enabledUrgent);
     }
 
-    public function isUserAccountUrgent($userAccountUrgent = self::USER_ACCOUNT_URGENT){
+    public function isUserAccountUrgent($userAccountUrgent = self::USER_ACCOUNT_URGENT)
+    {
         return $this->getConfig($userAccountUrgent);
     }
 
-    public function isUserPasswordUrgent($userPasswordUrgent = self::USER_PASSWORD_URGENT){
+    public function isUserPasswordUrgent($userPasswordUrgent = self::USER_PASSWORD_URGENT)
+    {
         return $this->getConfig($userPasswordUrgent);
     }
 
-    public function isTariffPlan($tariffPlan = self::TARIFF_PLAN){
+    public function isTariffPlan($tariffPlan = self::TARIFF_PLAN)
+    {
         return $this->getConfig($tariffPlan);
     }
 
-    public function isPickupId($pickupId = self::PICKUP_ID){
+    public function isPickupId($pickupId = self::PICKUP_ID)
+    {
         return $this->getConfig($pickupId);
     }
 
-    public function isDeliveryPaymentUrgent($deliveryPaymentUrgent = self::DELIVERY_PAYMENT_URGENT){
+    public function isDeliveryPaymentUrgent($deliveryPaymentUrgent = self::DELIVERY_PAYMENT_URGENT)
+    {
         return $this->getConfig($deliveryPaymentUrgent);
     }
 
-    public function isPaymentMethod($paymentMethod = self::PAYMENT_METHOD){
+    public function isPaymentMethod($paymentMethod = self::PAYMENT_METHOD)
+    {
         return $this->getConfig($paymentMethod);
     }
 
-    public function isOpenPackage($openPackage = self::OPEN_PACKAGE){
+    public function isOpenPackage($openPackage = self::OPEN_PACKAGE)
+    {
         return $this->getConfig($openPackage);
     }
 
-    public function isOrderValue($orderValue = self::ORDER_VALUE){
+    public function isOrderValue($orderValue = self::ORDER_VALUE)
+    {
         return $this->getConfig($orderValue);
     }
 
-    public function isDeliverySaturday($deliverySaturday = self::DELIVERY_SATURDAY){
+    public function isDeliverySaturday($deliverySaturday = self::DELIVERY_SATURDAY)
+    {
         return $this->getConfig($deliverySaturday);
     }
 
-    public function isPackageType($packageType = self::PACKAGE_TYPE){
+    public function isPackageType($packageType = self::PACKAGE_TYPE)
+    {
         return $this->getConfig($packageType);
     }
 
-    public function isEnabledFan($enabledFan = self::ENABLED_FAN){
+    public function isEnabledFan($enabledFan = self::ENABLED_FAN)
+    {
         return $this->getConfig($enabledFan);
     }
 
-    public function isTitle($title = self::TITLE){
+    public function isTitle($title = self::TITLE)
+    {
         return $this->getConfig($title);
     }
 
-    public function isClientId($clientId = self::CLIENT_ID){
+    public function isClientId($clientId = self::CLIENT_ID)
+    {
         return $this->getConfig($clientId);
     }
 
-    public function isUserAccountFan($userAccountFan = self::USER_ACCOUNT_FAN){
+    public function isUserAccountFan($userAccountFan = self::USER_ACCOUNT_FAN)
+    {
         return $this->getConfig($userAccountFan);
     }
 
-    public function isUserPasswordFan($userPasswordFan = self::USER_PASSWORD_FAN){
+    public function isUserPasswordFan($userPasswordFan = self::USER_PASSWORD_FAN)
+    {
         return $this->getConfig($userPasswordFan);
     }
 
-    public function isAwbConfirmation($awbConfirmation = self::AWB_CONFIRMATION){
+    public function isAwbConfirmation($awbConfirmation = self::AWB_CONFIRMATION)
+    {
         return $this->getConfig($awbConfirmation);
     }
 
-    public function isShippingParcels($shippingParcels = self::SHIPPING_PARCELS){
+    public function isShippingParcels($shippingParcels = self::SHIPPING_PARCELS)
+    {
         return $this->getConfig($shippingParcels);
     }
 
-    public function isParcelsNumber($parcelsNumber = self::PARCELS_NUMBER){
+    public function isParcelsNumber($parcelsNumber = self::PARCELS_NUMBER)
+    {
         return $this->getConfig($parcelsNumber);
     }
 
-    public function isDeliveryPaymentFan($deliveryPaymentFan = self::DELIVERY_PAYMENT_FAN){
+    public function isDeliveryPaymentFan($deliveryPaymentFan = self::DELIVERY_PAYMENT_FAN)
+    {
         return $this->getConfig($deliveryPaymentFan);
     }
 
-    public function isPriceWithoutVat($priceWithoutVat = self::PRICE_WITHOUT_VAT){
+    public function isPriceWithoutVat($priceWithoutVat = self::PRICE_WITHOUT_VAT)
+    {
         return $this->getConfig($priceWithoutVat);
     }
 
-    public function isRatesForeignCurrency($ratesForeignCurrency = self::RATES_FOREIGN_CURRENCY){
+    public function isRatesForeignCurrency($ratesForeignCurrency = self::RATES_FOREIGN_CURRENCY)
+    {
         return $this->getConfig($ratesForeignCurrency);
     }
 
-    public function isHideShippingCharge($hideShippingCharge = self::HIDE_SHIPPING_CHARGE){
+    public function isHideShippingCharge($hideShippingCharge = self::HIDE_SHIPPING_CHARGE)
+    {
         return $this->getConfig($hideShippingCharge);
     }
 
-    public function isFreeShippingAmount($freeShippingAmount = self::FREE_SHIPPING_AMOUNT){
+    public function isFreeShippingAmount($freeShippingAmount = self::FREE_SHIPPING_AMOUNT)
+    {
         return $this->getConfig($freeShippingAmount);
     }
 
-    public function isFixedAmount($fixedAmount = self::FiXED_AMOUNT){
+    public function isFixedAmount($fixedAmount = self::FiXED_AMOUNT)
+    {
         return $this->getConfig($fixedAmount);
     }
 
-    public function isCashOnDeliveryRefunds($cashOnDeliveryRefunds = self::CASH_ON_DELIVERY_REFUNDS){
+    public function isCashOnDeliveryRefunds($cashOnDeliveryRefunds = self::CASH_ON_DELIVERY_REFUNDS)
+    {
         return $this->getConfig($cashOnDeliveryRefunds);
     }
 }
