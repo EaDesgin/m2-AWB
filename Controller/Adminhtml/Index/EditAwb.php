@@ -3,12 +3,15 @@
 namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
 
 use Eadesigndev\Awb\Api\AwbRepositoryInterface;
+use Eadesigndev\Awb\Model\Awb;
 use Eadesigndev\Awb\Model\AwbFactory;
 use Eadesigndev\Awb\Helper\Data as DataHelper;
+use Eadesigndev\Urgent\Model\ShipmentData;
 use Magento\Framework\Registry;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\Session;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\Request\Http;
 
 class EditAwb extends \Magento\Backend\App\Action
 {
@@ -24,6 +27,8 @@ class EditAwb extends \Magento\Backend\App\Action
      */
     protected $resultPageFactory;
 
+    protected $request;
+
     private $awbRepository;
 
     private $awbFactory;
@@ -34,17 +39,25 @@ class EditAwb extends \Magento\Backend\App\Action
 
     private $dataHelper;
 
+    private $shipmentData;
+
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         AwbRepositoryInterface $awbRepository,
         AwbFactory $awbFactory,
+        ShipmentData $shipmentData,
         Registry $registry,
-        DataHelper $dataHelper
-    ) {
+        DataHelper $dataHelper,
+        Http $request
+    )
+    {
+        $this->request = $request;
         $this->resultPageFactory = $resultPageFactory;
         $this->awbRepository = $awbRepository;
         $this->awbFactory = $awbFactory;
+        $this->shipmentData = $shipmentData;
         $this->registry = $registry;
         $this->session = $context->getSession();
         $this->dataHelper = $dataHelper;
@@ -66,7 +79,19 @@ class EditAwb extends \Magento\Backend\App\Action
 //
 //        $clientId = $this->dataHelper->isClientId();
 
+        /** @var Awb $model */
         $model = $this->awbFactory->create();
+
+        $shipmentId = $this->request->getParam('shipment_id');
+        $orderId = $this->request->getParam('order_id');
+        $carrierType = $this->request->getParam('carrier_id');
+
+
+        $this->shipmentData->setAwbData($shipmentId, $orderId, $carrierType);
+        $data = $this->shipmentData->getAwbData();
+
+        $model->setData($data);
+
 
         /** @var Session $data */
         $data = $this->session->getFormData(true);
@@ -91,4 +116,6 @@ class EditAwb extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
+
+
 }
