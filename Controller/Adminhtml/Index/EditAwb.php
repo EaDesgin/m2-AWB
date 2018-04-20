@@ -51,8 +51,7 @@ class EditAwb extends \Magento\Backend\App\Action
         Registry $registry,
         DataHelper $dataHelper,
         Http $request
-    )
-    {
+    ) {
         $this->request = $request;
         $this->resultPageFactory = $resultPageFactory;
         $this->awbRepository = $awbRepository;
@@ -71,14 +70,6 @@ class EditAwb extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-//        $enabledAwb = $this->dataHelper->isEnabled();
-//
-//        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
-//
-//        $userAccount = $this->dataHelper->isUserAccount();
-//
-//        $clientId = $this->dataHelper->isClientId();
-
         /** @var Awb $model */
         $model = $this->awbFactory->create();
 

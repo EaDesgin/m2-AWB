@@ -52,20 +52,12 @@ class Edit extends \Magento\Backend\App\Action
     }
 
     /**
-     * Index action
+     * Edit action
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
     public function execute()
     {
-//        $enabledAwb = $this->dataHelper->isEnabled();
-//
-//        $enabledUrgent = $this->dataHelper->isEnabledUrgent();
-//
-//        $userAccount = $this->dataHelper->isUserAccount();
-//
-//        $clientId = $this->dataHelper->isClientId();
-
         $id = $this->getRequest()->getParam('entity_id');
         if ($id) {
             $model = $this->awbRepository->getById($id);
@@ -85,19 +77,14 @@ class Edit extends \Magento\Backend\App\Action
         }
         $this->registry->register('awb_data', $model);
 
-
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magento_Cms::cms_page');
-        $resultPage->addBreadcrumb(__('CMS'), __('CMS'));
         $resultPage->addBreadcrumb(__('Edit'), __('Edit'));
         $resultPage->getConfig()->getTitle()->prepend(__('Edit'));
 
-        $dataPersistor = $this->_objectManager->get(\Magento\Framework\App\Request\DataPersistorInterface::class);
-        $dataPersistor->clear('cms_page');
-
         return $resultPage;
     }
+
     /**
      * @return bool
      */

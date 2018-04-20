@@ -14,7 +14,6 @@ use Magento\Framework\Registry;
  */
 class Edit extends Container
 {
-
     private $duplicateButton;
 
     private $aprobaAwb;
@@ -25,8 +24,6 @@ class Edit extends Container
      * @var DuplicateButton
      * @var AprobaAwb
      */
-
-
 
     private $coreRegistry = null;
 
