@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model;
 
@@ -12,6 +16,7 @@ use Magento\Framework\Registry;
 
 class Awb extends AbstractModel implements AwbInterface
 {
+
     public function __construct(
         Context $context,
         Registry $registry,
@@ -179,7 +184,6 @@ class Awb extends AbstractModel implements AwbInterface
     }
 
 
-
     public function setId($entityId)
     {
         $this->setData(AwbInterface::ENTITY_ID, $entityId);
@@ -205,124 +209,124 @@ class Awb extends AbstractModel implements AwbInterface
         $this->setData(AwbInterface::SHIPPING_ID, $shippingId);
     }
 
-    public function setRecipient($Recipient)
+    public function setRecipient($recipient)
     {
-        $this->setData(AwbInterface::RECIPIENT, $Recipient);
+        $this->setData(AwbInterface::RECIPIENT, $recipient);
     }
 
-    public function setCountryId($CountryId)
+    public function setCountryId($countryId)
     {
-        $this->setData(AwbInterface::COUNTRY_ID, $CountryId);
+        $this->setData(AwbInterface::COUNTRY_ID, $countryId);
     }
 
-    public function setRegionId($RegionId)
+    public function setRegionId($regionId)
     {
-        $this->setData(AwbInterface::REGION_ID, $RegionId);
+        $this->setData(AwbInterface::REGION_ID, $regionId);
     }
 
-    public function setCity($City)
+    public function setCity($city)
     {
-        $this->setData(AwbInterface::CITY, $City);
+        $this->setData(AwbInterface::CITY, $city);
     }
 
-    public function setStreet($Street)
+    public function setStreet($street)
     {
-        $this->setData(AwbInterface::STREET, $Street);
+        $this->setData(AwbInterface::STREET, $street);
     }
 
-    public function setTelephone($Telephone)
+    public function setTelephone($telephone)
     {
-        $this->setData(AwbInterface::TELEPHONE, $Telephone);
+        $this->setData(AwbInterface::TELEPHONE, $telephone);
     }
 
-    public function setCustomerEmail($CustomerEmail)
+    public function setCustomerEmail($customerEmail)
     {
-        $this->setData(AwbInterface::CUSTOMER_EMAIL, $CustomerEmail);
+        $this->setData(AwbInterface::CUSTOMER_EMAIL, $customerEmail);
     }
 
-    public function setPostcode($Postcode)
+    public function setPostcode($postcode)
     {
-        $this->setData(AwbInterface::POSTCODE, $Postcode);
+        $this->setData(AwbInterface::POSTCODE, $postcode);
     }
 
-    public function setCarrierId($CarrierId)
+    public function setCarrierId($carrierId)
     {
-        $this->setData(AwbInterface::CARRIER_ID, $CarrierId);
+        $this->setData(AwbInterface::CARRIER_ID, $carrierId);
     }
 
-    public function setPaymentMethod($PaymentMethod)
+    public function setPaymentMethod($paymentMethod)
     {
-        $this->setData(AwbInterface::PAYMENT_METHOD, $PaymentMethod);
+        $this->setData(AwbInterface::PAYMENT_METHOD, $paymentMethod);
     }
 
-    public function setTariffPlan($TariffPlan)
+    public function setTariffPlan($tariffPlan)
     {
-        $this->setData(AwbInterface::TARIFF_PLAN, $TariffPlan);
+        $this->setData(AwbInterface::TARIFF_PLAN, $tariffPlan);
     }
 
-    public function setAwbPickupId($AwbPickupId)
+    public function setAwbPickupId($awbPickupId)
     {
-        $this->setData(AwbInterface::AWB_PICKUP_ID, $AwbPickupId);
+        $this->setData(AwbInterface::AWB_PICKUP_ID, $awbPickupId);
     }
 
-    public function setDeliveryPayment($DeliveryPayment)
+    public function setDeliveryPayment($deliveryPayment)
     {
-        $this->setData(AwbInterface::DELIVERY_PAYMENT, $DeliveryPayment);
+        $this->setData(AwbInterface::DELIVERY_PAYMENT, $deliveryPayment);
     }
 
-    public function setWeight($Weight)
+    public function setWeight($weight)
     {
-        $this->setData(AwbInterface::WEIGHT, $Weight);
+        $this->setData(AwbInterface::WEIGHT, $weight);
     }
 
-    public function setPackages($Packages)
+    public function setPackages($packages)
     {
-        $this->setData(AwbInterface::PACKAGES, $Packages);
+        $this->setData(AwbInterface::PACKAGES, $packages);
     }
 
-    public function setEnvelopes($Envelopes)
+    public function setEnvelopes($envelopes)
     {
-        $this->setData(AwbInterface::ENVELOPES, $Envelopes);
+        $this->setData(AwbInterface::ENVELOPES, $envelopes);
     }
 
-    public function setOrderValue($OrderValue)
+    public function setOrderValue($orderValue)
     {
-        $this->setData(AwbInterface::ORDER_VALUE, $OrderValue);
+        $this->setData(AwbInterface::ORDER_VALUE, $orderValue);
     }
 
-    public function setRepaymentValue($RepaymentValue)
+    public function setRepaymentValue($repaymentValue)
     {
-        $this->setData(AwbInterface::REPAYMENT_VALUE, $RepaymentValue);
+        $this->setData(AwbInterface::REPAYMENT_VALUE, $repaymentValue);
     }
 
-    public function setContent($Content)
+    public function setContent($content)
     {
-        $this->setData(AwbInterface::CONTENT, $Content);
+        $this->setData(AwbInterface::CONTENT, $content);
     }
 
-    public function setDeliverySaturday($DeliverySaturday)
+    public function setDeliverySaturday($deliverySaturday)
     {
-        $this->setData(AwbInterface::DELIVERY_SATURDAY, $DeliverySaturday);
+        $this->setData(AwbInterface::DELIVERY_SATURDAY, $deliverySaturday);
     }
 
-    public function setOpenPackage($OpenPackage)
+    public function setOpenPackage($openPackage)
     {
-        $this->setData(AwbInterface::OPEN_PACKAGE, $OpenPackage);
+        $this->setData(AwbInterface::OPEN_PACKAGE, $openPackage);
     }
 
-    public function setComments($Comments)
+    public function setComments($comments)
     {
-        $this->setData(AwbInterface::COMMENTS, $Comments);
+        $this->setData(AwbInterface::COMMENTS, $comments);
     }
 
-    public function setStatus($Status)
+    public function setStatus($status)
     {
-        $this->setData(AwbInterface::STATUS, $Status);
+        $this->setData(AwbInterface::STATUS, $status);
     }
 
-    public function setDeliveryCompany($DeliveryCompany)
+    public function setDeliveryCompany($deliveryCompany)
     {
-        $this->setData(AwbInterface::DELIVERY_COMPANY, $DeliveryCompany);
+        $this->setData(AwbInterface::DELIVERY_COMPANY, $deliveryCompany);
     }
 
 
