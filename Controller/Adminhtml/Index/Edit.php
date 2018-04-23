@@ -1,8 +1,13 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
 
 use Eadesigndev\Awb\Api\AwbRepositoryInterface;
+use Eadesigndev\Awb\Model\Awb;
 use Eadesigndev\Awb\Model\AwbFactory;
 use Eadesigndev\Awb\Helper\Data as DataHelper;
 use Magento\Framework\Registry;
@@ -19,9 +24,6 @@ class Edit extends \Magento\Backend\App\Action
      */
     const ADMIN_RESOURCE = 'Eadesigndev_Awb::awb';
 
-    /**
-     * @var PageFactory
-     */
     protected $resultPageFactory;
 
     private $awbRepository;
@@ -42,6 +44,7 @@ class Edit extends \Magento\Backend\App\Action
         Registry $registry,
         DataHelper $dataHelper
     ) {
+
         $this->resultPageFactory = $resultPageFactory;
         $this->awbRepository     = $awbRepository;
         $this->awbFactory        = $awbFactory;
@@ -52,24 +55,15 @@ class Edit extends \Magento\Backend\App\Action
     }
 
     /**
-     * Edit action
+     * Edit action new awb.
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('entity_id');
-        if ($id) {
-            $model = $this->awbRepository->getById($id);
-            if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This field no longer exists.'));
-                /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultFactory->create();
-                return $resultRedirect->setPath('*/*/');
-            }
-        } else {
-            $model = $this->awbFactory->create();
-        }
+        /** @var Awb $model */
+        $model = $this->awbFactory->create();
+
         /** @var Session $data */
         $data = $this->session->getFormData(true);
         if (!empty($data)) {
@@ -79,8 +73,8 @@ class Edit extends \Magento\Backend\App\Action
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->addBreadcrumb(__('Edit'), __('Edit'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Edit'));
+        $resultPage->addBreadcrumb(__('Edit new Awb'), __('Edit new Awb'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Edit new Awb'));
 
         return $resultPage;
     }

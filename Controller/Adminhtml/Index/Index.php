@@ -1,14 +1,16 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-
 class Index extends \Magento\Backend\App\Action
 {
-
     /**
      * Authorization level of a basic admin session
      *
@@ -16,25 +18,18 @@ class Index extends \Magento\Backend\App\Action
      */
     const ADMIN_RESOURCE = 'Eadesigndev_Awb::awb';
 
-    /**
-     * @var PageFactory
-     */
     protected $resultPageFactory;
 
-    /**
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
-     */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory
     ) {
-        parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
+        parent::__construct($context);
     }
 
     /**
-     * Index action
+     * Index action list awb.
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
@@ -42,13 +37,8 @@ class Index extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu(self::ADMIN_RESOURCE);
-        $resultPage->addBreadcrumb(__('CMS'), __('CMS'));
         $resultPage->addBreadcrumb(__('Manage Lista AWB'), __('Manage Lista AWB'));
         $resultPage->getConfig()->getTitle()->prepend(__('Lista AWB'));
-
-        $dataPersistor = $this->_objectManager->get(\Magento\Framework\App\Request\DataPersistorInterface::class);
-        $dataPersistor->clear('cms_page');
 
         return $resultPage;
     }
