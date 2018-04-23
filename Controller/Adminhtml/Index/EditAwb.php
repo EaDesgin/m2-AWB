@@ -77,12 +77,9 @@ class EditAwb extends \Magento\Backend\App\Action
         $orderId = $this->request->getParam('order_id');
         $carrierType = $this->request->getParam('carrier_id');
 
-
         $this->shipmentData->setAwbData($shipmentId, $orderId, $carrierType);
         $data = $this->shipmentData->getAwbData();
-
         $model->setData($data);
-
 
         /** @var Session $data */
         $data = $this->session->getFormData(true);
@@ -90,7 +87,6 @@ class EditAwb extends \Magento\Backend\App\Action
             $model->setData($data);
         }
         $this->registry->register('awb_data', $model);
-
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
