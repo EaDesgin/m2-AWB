@@ -5,6 +5,7 @@ namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab;
 use Eadesigndev\Awb\Model\Awb;
 use Eadesigndev\Awb\Model\Sources\CarrierType;
 use Eadesigndev\Awb\Model\Sources\PaymentMethod;
+use Eadesigndev\Awb\Model\Sources\DeliveryPayment;
 use Eadesigndev\Awb\Model\Sources\Tariff;
 use Eadesigndev\Awb\Model\Sources\PickupId;
 use Eadesigndev\Awb\Model\Sources\InputType;
@@ -36,6 +37,11 @@ class Curier extends Generic implements TabInterface
     private $paymentMethod;
 
     /**
+     * @var DeliveryPayment
+     */
+    private $deliveryPayment;
+
+    /**
      * @var Tariff
      */
     private $tariff;
@@ -49,7 +55,6 @@ class Curier extends Generic implements TabInterface
      * @var InputType
      */
     private $inputType;
-
 
     /**
      * @var Yesno
@@ -74,22 +79,34 @@ class Curier extends Generic implements TabInterface
         SystemStore $systemStore,
         CarrierType $carrierType,
         PaymentMethod $paymentMethod,
+        DeliveryPayment $deliveryPayment,
         Tariff $tariff,
         PickupId $pickupId,
         InputType $inputType,
         array $data = []
     ) {
-        $this->registry    = $registry;
-        $this->yesNo       = $yesNo;
-        $this->systemStore = $systemStore;
-        $this->carrierType = $carrierType;
-        $this->paymentMethod = $paymentMethod;
-        $this->tariff = $tariff;
-        $this->pickupId = $pickupId;
-        $this->inputType = $inputType;
+        $this->registry        = $registry;
+        $this->yesNo           = $yesNo;
+        $this->systemStore     = $systemStore;
+        $this->carrierType     = $carrierType;
+        $this->paymentMethod   = $paymentMethod;
+        $this->deliveryPayment = $deliveryPayment;
+        $this->tariff          = $tariff;
+        $this->pickupId        = $pickupId;
+        $this->inputType       = $inputType;
 
-
-        parent::__construct($context, $registry, $formFactory, $data, $carrierType, $paymentMethod, $tariff, $pickupId, $inputType);
+        parent::__construct(
+            $context,
+            $registry,
+            $formFactory,
+            $data,
+            $carrierType,
+            $paymentMethod,
+            $deliveryPayment,
+            $tariff,
+            $pickupId,
+            $inputType
+        );
     }
 
     /**
@@ -98,13 +115,11 @@ class Curier extends Generic implements TabInterface
      */
     public function _prepareForm()
     {
-
         /** @var Awb $model */
         $model = $this->registry->registry('awb_data');
 
         /** @var Form $form */
         $form = $this->_formFactory->create();
-
 
         $fieldSet = $form->addFieldset(
             'base_fieldset',
@@ -112,8 +127,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->carrierType->getAvailable();
-
-
         $fieldSet->addField(
             'carrier_id',
             'select',
@@ -128,7 +141,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->paymentMethod->getAvailable();
-
         $fieldSet->addField(
             'payment_method',
             'select',
@@ -142,8 +154,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->tariff->getAvailable();
-
-
         $fieldSet->addField(
             'tariff_plan',
             'select',
@@ -157,8 +167,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->pickupId->getAvailable();
-
-
         $fieldSet->addField(
             'awb_pickup_id',
             'select',
@@ -171,7 +179,7 @@ class Curier extends Generic implements TabInterface
             ]
         );
 
-
+        $types = $this->deliveryPayment->getAvailable();
         $fieldSet->addField(
             'delivery_payment',
             'select',
@@ -179,13 +187,12 @@ class Curier extends Generic implements TabInterface
                 'name' => 'delivery_payment',
                 'label' => __('Delivery Payment(Sender/Consignee)'),
                 'title' => __('Delivery Payment (Sender/Consignee)'),
-                'values' => $this->yesNo->toOptionArray(),
+                'values' => $types,
                 'required' => true,
             ]
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'weight',
             'text',
@@ -199,7 +206,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'packages',
             'text',
@@ -208,12 +214,11 @@ class Curier extends Generic implements TabInterface
                 'label' => __('Packages'),
                 'title' => __('Packages'),
                 'values' => $types,
-                'required' => true,
+                'required' => false,
             ]
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'envelopes',
             'text',
@@ -222,12 +227,11 @@ class Curier extends Generic implements TabInterface
                 'label' => __('Envelopes'),
                 'title' => __('Envelopes'),
                 'values' => $types,
-                'required' => true,
+                'required' => false,
             ]
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'order_value',
             'text',
@@ -241,7 +245,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'repayment_value',
             'text',
@@ -255,7 +258,6 @@ class Curier extends Generic implements TabInterface
         );
 
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'content',
             'textarea',
@@ -264,10 +266,9 @@ class Curier extends Generic implements TabInterface
                 'label' => __('Content'),
                 'title' => __('Content'),
                 'values' => $types,
-                'required' => true,
+                'required' => false,
             ]
         );
-
 
         $fieldSet->addField(
             'delivery_saturday',
@@ -293,9 +294,7 @@ class Curier extends Generic implements TabInterface
             ]
         );
 
-
         $types = $this->inputType->getAvailable();
-
         $fieldSet->addField(
             'comments',
             'textarea',
@@ -304,11 +303,9 @@ class Curier extends Generic implements TabInterface
                 'label' => __('Comments'),
                 'title' => __('Comments'),
                 'values' => $types,
-                'required' => true,
+                'required' => false,
             ]
         );
-
-
 
         $form->setValues($model->getData());
         $this->setForm($form);
