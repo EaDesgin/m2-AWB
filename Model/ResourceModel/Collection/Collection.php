@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model\ResourceModel\Collection;
 
@@ -7,7 +11,6 @@ use Eadesigndev\Awb\Model\ResourceModel\Awb  as AwbResourceModel;
 
 class Collection extends AbstractCollection
 {
-
     /**
      * @var string
      */
@@ -25,7 +28,6 @@ class Collection extends AbstractCollection
             AwbModel::class,
             AwbResourceModel::class
         );
-
         $this->_map['awb']['entity_id'] = 'main_table.entity_id';
     }
 
@@ -38,7 +40,6 @@ class Collection extends AbstractCollection
      */
     public function addStoreFilter($store, $withAdmin = true)
     {
-
         return $this;
     }
 }
