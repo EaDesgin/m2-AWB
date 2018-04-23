@@ -1,9 +1,13 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model\Sources;
 
 /**
- * Class InputType
+ * Class DeliveryPayment
  * @package Eadesigndev\Awb\ModelSource
  */
 class DeliveryPayment extends AbstractSource
@@ -13,6 +17,7 @@ class DeliveryPayment extends AbstractSource
      */
     const DESTINATAR = 0;
     const EXPEDITOR = 1;
+
     /**
      * @return array
      */

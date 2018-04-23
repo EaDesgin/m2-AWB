@@ -1,9 +1,13 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model\Sources;
 
 /**
- * Class InputType
+ * Class CarrierType
  * @package Eadesigndev\Awb\ModelSource
  */
 class CarrierType extends AbstractSource
@@ -13,6 +17,7 @@ class CarrierType extends AbstractSource
      */
     const URGENT_CURRIER = 0;
     const FAN_CURRIER = 1;
+
     /**
      * @return array
      */
