@@ -92,5 +92,11 @@ class EditAwb extends Container
             ],
             -100
         );
+
+        $this->buttonList->update(
+            'delete',
+            'label',
+            __('Delete Awb')
+        );
     }
 }
