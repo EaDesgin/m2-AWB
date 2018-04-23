@@ -61,9 +61,19 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        /** @var Awb $model */
-        $model = $this->awbFactory->create();
-
+        $id = $this->getRequest()->getParam('entity_id');
+        if ($id) {
+            $model = $this->awbRepository->getById($id);
+            if (!$model->getEntityId()) {
+                $this->messageManager->addErrorMessage(__('This field no longer exists.'));
+                /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+                $resultRedirect = $this->resultFactory->create();
+                return $resultRedirect->setPath('*/*/');
+            }
+        } else {
+            $model = $this->awbFactory->create();
+        }
+        
         /** @var Session $data */
         $data = $this->session->getFormData(true);
         if (!empty($data)) {
