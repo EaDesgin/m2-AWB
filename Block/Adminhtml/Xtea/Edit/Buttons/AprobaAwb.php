@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Buttons;
 
 use Eadesigndev\Awb\Controller\Adminhtml\Index\Index;
@@ -21,7 +24,6 @@ class AprobaAwb extends GenericButton implements ButtonProviderInterface
         $data = [];
         if ($this->_isAllowedAction(Index::ADMIN_RESOURCE)) {
             $data = [
-
                 'label' => __('Aproba Awb'),
                 'class' => 'aproba_awb',
                 'on_click' => sprintf("location.href = '%s';", $this->getDuplicateUrl()),
@@ -38,7 +40,9 @@ class AprobaAwb extends GenericButton implements ButtonProviderInterface
     {
         return $this->getUrl(
             '*/*/duplicate',
-            ['entity_id' => $this->getEntityId()]
+            [
+                'entity_id' => $this->getEntityId()
+            ]
         );
     }
 }
