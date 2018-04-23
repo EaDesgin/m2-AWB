@@ -1,11 +1,15 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit;
 
 use Magento\Backend\Block\Widget\Tabs as WidgetTabs;
 
 /**
- * Admin page left menu
+ * Admin page left menu Date AWB
  */
 class Tabs extends WidgetTabs
 {
@@ -17,20 +21,11 @@ class Tabs extends WidgetTabs
         parent::_construct();
         $this->setId('xtea_tabs');
         $this->setDestElementId('edit_form');
-        $this->setTitle(__('Field configuration'));
+        $this->setTitle(__('Date AWB'));
     }
 
     protected function _beforeToHtml()
     {
-//        $this->addTab(
-//            'labels',
-//            [
-//                'label' => __('Label/Option'),
-//                'title' => __('Label/Option'),
-//                'content' => $this->getChildHtml('labels')
-//            ]
-//        );
-
         return parent::_beforeToHtml();
     }
 }
