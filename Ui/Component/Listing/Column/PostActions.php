@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Ui\Component\Listing\Column;
 
@@ -9,10 +13,9 @@ use Magento\Framework\UrlInterface;
 
 class PostActions extends Column
 {
-
     /** Url path */
-    const TEMPLATE_EDIT = 'shipping_awb/index/edit';
-    const TEMPLATE_DELETE = 'shipping_awb/index/delete';
+    const AWB_TEMPLATE_EDIT = 'shipping_awb/index/edit';
+    const AWB_TEMPLATE_DELETE = 'shipping_awb/index/delete';
 
     /** @var UrlInterface */
     private $urlBuilder;
@@ -36,9 +39,8 @@ class PostActions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = [],
-        $editUrl = self::TEMPLATE_EDIT
-    )
-    {
+        $editUrl = self::AWB_TEMPLATE_EDIT
+    ) {
         $this->urlBuilder = $urlBuilder;
         $this->editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
