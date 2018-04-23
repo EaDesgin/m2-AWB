@@ -18,7 +18,7 @@
                 <label>Urgent Courier</label>
                 <field id="enabled_urgent" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
-                    <comment>If enabled, order PDFs will be customized by your settings made at "Manage PDF Templates". Also, bulk actions to print your customized PDFs will show up in the grid.</comment>
+                    <comment>If enabled, AWBs will be customized by your settings made at "Manage AWB List". Also, bulk actions to print your customized AWBs will show up in the grid.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="user_account_urgent" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
