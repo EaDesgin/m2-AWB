@@ -12,7 +12,7 @@ use Magento\Framework\Registry;
  * Class Edit
  * @package Eadesigndev\Awb\Block\Adminhtml\Xtea
  */
-class Edit extends Container
+class EditAwb extends Container
 {
     private $duplicateButton;
 

@@ -6,9 +6,9 @@ use Eadesigndev\Awb\Controller\Adminhtml\Index\Index;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
- * Class DuplicateButton
+ * Class AprobaAwb
  */
-class DuplicateButton extends GenericButton implements ButtonProviderInterface
+class AprobaAwb extends GenericButton implements ButtonProviderInterface
 {
     /**
      * @return array
@@ -16,18 +16,18 @@ class DuplicateButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         /**
-         * to do duplicate to a awb
+         * to do aprove to a awb
          */
         $data = [];
         if ($this->_isAllowedAction(Index::ADMIN_RESOURCE)) {
-                $data = [
+            $data = [
 
-                    'label' => __('Duplicate'),
-                    'class' => 'duplicate',
-                    'on_click' => sprintf("location.href = '%s';", $this->getDuplicateUrl()),
-                    'sort_order' => 20,
-                    ];
-       }
+                'label' => __('Aproba Awb'),
+                'class' => 'aproba_awb',
+                'on_click' => sprintf("location.href = '%s';", $this->getDuplicateUrl()),
+                'sort_order' => 30,
+            ];
+        }
         return $data;
     }
 
