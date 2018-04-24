@@ -7,6 +7,14 @@
             <item name="deps" xsi:type="string">xtea_fields_listing.fields_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">fields_columns</item>
+        <item name="buttons" xsi:type="array">
+                      <item name="add" xsi:type="array">
+                          <item name="name" xsi:type="string">add</item>
+                          <item name="label" xsi:type="string" translate="true">Add new Awb</item>
+                         <item name="class" xsi:type="string">primary</item>
+                          <item name="url" xsi:type="string">*/*/edit</item>
+                       </item>
+                  </item>
     </argument>
     <dataSource name="fields_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -35,19 +43,6 @@
                 <item name="template" xsi:type="string">ui/grid/toolbar</item>
             </item>
         </argument>
-        <!--<bookmark name="bookmarks">-->
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="component" xsi:type="string">Magento_Ui/js/grid/controls/bookmarks/bookmarks</item>-->
-                    <!--<item name="displayArea" xsi:type="string">dataGridActions</item>-->
-                    <!--<item name="storageConfig" xsi:type="array">-->
-                        <!--<item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>-->
-                        <!--<item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>-->
-                        <!--<item name="namespace" xsi:type="string">xtea_fields_listing</item>-->
-                    <!--</item>-->
-                <!--</item>-->
-            <!--</argument>-->
-        <!--</bookmark>-->
         <container name="columns_controls">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -318,7 +313,7 @@
                     <item name="filter" xsi:type="string">dateRange</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
-                    <item name="label" xsi:type="string" translate="true">Created</item>
+                    <item name="label" xsi:type="string" translate="true">Created Time</item>
                 </item>
             </argument>
         </column>
@@ -346,15 +341,23 @@
                 <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                 <item name="editor" xsi:type="string">select</item>
                 <item name="dataType" xsi:type="string">select</item>
-                <item name="label" xsi:type="string" translate="true">Type</item>
+                <item name="label" xsi:type="string" translate="true">Courier</item>
             </item>
         </argument>
+        </column>
+        <column name="">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Awb Number</item>
+                </item>
+            </argument>
         </column>
         <column name="awb_pickup_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Awb number</item>
+                    <item name="label" xsi:type="string" translate="true">Awb Pickup</item>
                 </item>
             </argument>
         </column>
@@ -390,18 +393,10 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="editor" xsi:type="string">select</item>
                     <item name="dataType" xsi:type="string">select</item>
-                    <item name="label" xsi:type="string" translate="true">Type</item>
+                    <item name="label" xsi:type="string" translate="true">Delivery Payment</item>
                 </item>
             </argument>
         </column>
-        <!--<column name="delivery_payment">-->
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="filter" xsi:type="string">text</item>-->
-                    <!--<item name="label" xsi:type="string" translate="true">Delivery payment</item>-->
-                <!--</item>-->
-            <!--</argument>-->
-        <!--</column>-->
         <column name="order_value">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

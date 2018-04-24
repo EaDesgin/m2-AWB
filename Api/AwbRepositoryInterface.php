@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Api;
 
@@ -6,7 +10,6 @@ use Eadesigndev\Awb\Api\Data\AwbInterface;
 
 interface AwbRepositoryInterface
 {
-
     /**
      * @param AwbInterface $templates
      * @return mixed
@@ -14,7 +17,7 @@ interface AwbRepositoryInterface
     public function save(AwbInterface $templates);
 
     /**
-     * @param $value the template id
+     * @param $value
      * @return mixed
      */
     public function getById($value);
@@ -26,7 +29,7 @@ interface AwbRepositoryInterface
     public function delete(AwbInterface $templates);
 
     /**
-     * @param $value the template id
+     * @param $value
      * @return mixed
      */
     public function deleteById($value);

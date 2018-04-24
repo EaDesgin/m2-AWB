@@ -1,18 +1,23 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model\Sources;
 
 /**
- * Class InputType
+ * Class PackageType
  * @package Eadesigndev\Awb\ModelSource
  */
 class PackageType extends AbstractSource
 {
     /**
-     * DeliveryPayment
+     * PackageType
      */
     const COLET = 0;
     const PLIC = 1;
+
     /**
      * @return array
      */

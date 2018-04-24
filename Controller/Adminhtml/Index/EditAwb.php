@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
 
@@ -22,9 +26,6 @@ class EditAwb extends \Magento\Backend\App\Action
      */
     const ADMIN_RESOURCE = 'Eadesigndev_Awb::awb';
 
-    /**
-     * @var PageFactory
-     */
     protected $resultPageFactory;
 
     protected $request;
@@ -41,7 +42,6 @@ class EditAwb extends \Magento\Backend\App\Action
 
     private $shipmentData;
 
-
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
@@ -52,19 +52,20 @@ class EditAwb extends \Magento\Backend\App\Action
         DataHelper $dataHelper,
         Http $request
     ) {
-        $this->request = $request;
+
+        $this->request           = $request;
         $this->resultPageFactory = $resultPageFactory;
-        $this->awbRepository = $awbRepository;
-        $this->awbFactory = $awbFactory;
-        $this->shipmentData = $shipmentData;
-        $this->registry = $registry;
-        $this->session = $context->getSession();
-        $this->dataHelper = $dataHelper;
+        $this->awbRepository     = $awbRepository;
+        $this->awbFactory        = $awbFactory;
+        $this->shipmentData      = $shipmentData;
+        $this->registry          = $registry;
+        $this->session           = $context->getSession();
+        $this->dataHelper        = $dataHelper;
         parent::__construct($context);
     }
 
     /**
-     * Index action
+     * EditAwb action with parameters.
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
@@ -103,6 +104,4 @@ class EditAwb extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
-
-
 }

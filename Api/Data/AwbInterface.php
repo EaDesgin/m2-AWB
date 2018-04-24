@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2017 EaDesign by Eco Active S.R.L. All rights reserved.
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
  * See LICENSE for license details.
  */
 
@@ -8,36 +8,35 @@ namespace Eadesigndev\Awb\Api\Data;
 
 interface AwbInterface
 {
-    const ENTITY_ID = 'entity_id';
-    const IS_ACTIVE = 'is_active';
-    const CREATED_AT = 'created_at';
-    const ORDER_ID = 'order_id';
-    const SHIPPING_ID = 'shipping_id';
-    const RECIPIENT = 'recipient';
-    const COUNTRY_ID = 'country_id';
-    const REGION_ID = 'region_id';
-    const CITY = 'city';
-    const STREET = 'street';
-    const TELEPHONE = 'telephone';
-    const CUSTOMER_EMAIL = 'customer_email';
-    const POSTCODE = 'postcode';
-    const CARRIER_ID = 'carrier_id';
-    const PAYMENT_METHOD = 'payment_method';
-    const TARIFF_PLAN = 'tariff_plan';
-    const AWB_PICKUP_ID = 'awb_pickup_id';
-    const DELIVERY_PAYMENT = 'delivery_payment';
-    const WEIGHT = 'weight';
-    const PACKAGES = 'packages';
-    const ENVELOPES = 'envelopes';
-    const ORDER_VALUE = 'order_value';
-    const REPAYMENT_VALUE = 'repayment_value';
-    const CONTENT = 'content';
+    const ENTITY_ID         = 'entity_id';
+    const IS_ACTIVE         = 'is_active';
+    const CREATED_AT        = 'created_at';
+    const ORDER_ID          = 'order_id';
+    const SHIPPING_ID       = 'shipping_id';
+    const RECIPIENT         = 'recipient';
+    const COUNTRY_ID        = 'country_id';
+    const REGION_ID         = 'region_id';
+    const CITY              = 'city';
+    const STREET            = 'street';
+    const TELEPHONE         = 'telephone';
+    const CUSTOMER_EMAIL    = 'customer_email';
+    const POSTCODE          = 'postcode';
+    const CARRIER_ID        = 'carrier_id';
+    const PAYMENT_METHOD    = 'payment_method';
+    const TARIFF_PLAN       = 'tariff_plan';
+    const AWB_PICKUP_ID     = 'awb_pickup_id';
+    const DELIVERY_PAYMENT  = 'delivery_payment';
+    const WEIGHT            = 'weight';
+    const PACKAGES          = 'packages';
+    const ENVELOPES         = 'envelopes';
+    const ORDER_VALUE       = 'order_value';
+    const REPAYMENT_VALUE   = 'repayment_value';
+    const CONTENT           = 'content';
     const DELIVERY_SATURDAY = 'delivery_saturday';
-    const OPEN_PACKAGE = 'open_package';
-    const COMMENTS = 'comments';
-    const STATUS = 'status';
-    const DELIVERY_COMPANY = 'delivery_company';
-
+    const OPEN_PACKAGE      = 'open_package';
+    const COMMENTS          = 'comments';
+    const STATUS            = 'status';
+    const DELIVERY_COMPANY  = 'delivery_company';
 
 
     public function getId();
@@ -99,64 +98,62 @@ interface AwbInterface
     public function getDeliveryCompany();
 
 
-
     public function setId($entityId);
 
     public function setIsActive($isActive);
 
-    public function setCreatedAt($CreatedAt);
+    public function setCreatedAt($createdAt);
 
-    public function setOrderId($OrderId);
+    public function setOrderId($orderId);
 
-    public function setShippingId($ShippingId);
+    public function setShippingId($shippingId);
 
-    public function setRecipient($Recipient);
+    public function setRecipient($recipient);
 
-    public function setCountryId($CountryId);
+    public function setCountryId($countryId);
 
-    public function setRegionId($RegionId);
+    public function setRegionId($regionId);
 
-    public function setCity($City);
+    public function setCity($city);
 
-    public function setStreet($Street);
+    public function setStreet($street);
 
-    public function setTelephone($Telephone);
+    public function setTelephone($telephone);
 
-    public function setCustomerEmail($CustomerEmail);
+    public function setCustomerEmail($customerEmail);
 
-    public function setPostcode($Postcode);
+    public function setPostcode($postcode);
 
-    public function setCarrierId($CarrierId);
+    public function setCarrierId($carrierId);
 
-    public function setPaymentMethod($PaymentMethod);
+    public function setPaymentMethod($paymentMethod);
 
-    public function setTariffPlan($TariffPlan);
+    public function setTariffPlan($tariffPlan);
 
-    public function setAwbPickupId($AwbPickupId);
+    public function setAwbPickupId($awbPickupId);
 
-    public function setDeliveryPayment($DeliveryPayment);
+    public function setDeliveryPayment($deliveryPayment);
 
-    public function setWeight($Weight);
+    public function setWeight($weight);
 
-    public function setPackages($Packages);
+    public function setPackages($packages);
 
-    public function setEnvelopes($Envelopes);
+    public function setEnvelopes($envelopes);
 
-    public function setOrderValue($OrderValue);
+    public function setOrderValue($orderValue);
 
-    public function setRepaymentValue($RepaymentValue);
+    public function setRepaymentValue($repaymentValue);
 
-    public function setContent($Content);
+    public function setContent($content);
 
-    public function setDeliverySaturday($DeliverySaturday);
+    public function setDeliverySaturday($deliverySaturday);
 
-    public function setOpenPackage($OpenPackage);
+    public function setOpenPackage($openPackage);
 
-    public function setComments($Comments);
+    public function setComments($comments);
 
-    public function setStatus($Status);
+    public function setStatus($status);
 
-    public function setDeliveryCompany($DeliveryCompany);
-
+    public function setDeliveryCompany($deliveryCompany);
 
 }

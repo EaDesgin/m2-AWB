@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab;
 
 use Eadesigndev\Awb\Model\Awb;
@@ -18,10 +21,9 @@ use Magento\Framework\Registry;
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Config\Model\Config\Source\Yesno;
 use Magento\Store\Model\System\Store as SystemStore;
-use Magento\Backend\Block\Store\Switcher\Form\Renderer\Fieldset\Element;
 
 /**
- * Class Main
+ * Class Curier
  * @package Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab
  */
 class Curier extends Generic implements TabInterface

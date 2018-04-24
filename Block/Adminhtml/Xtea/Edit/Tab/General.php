@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab;
 
 use Eadesigndev\Awb\Model\Awb;
@@ -12,15 +15,13 @@ use Magento\Framework\Registry;
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Config\Model\Config\Source\Yesno;
 use Magento\Store\Model\System\Store as SystemStore;
-use Magento\Backend\Block\Store\Switcher\Form\Renderer\Fieldset\Element;
 
 /**
- * Class Main
+ * Class General
  * @package Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab
  */
 class General extends Generic implements TabInterface
 {
-
     /**
      * @var Yesno
      */
@@ -48,7 +49,12 @@ class General extends Generic implements TabInterface
         $this->yesNo       = $yesNo;
         $this->systemStore = $systemStore;
 
-        parent::__construct($context, $registry, $formFactory, $data);
+        parent::__construct(
+            $context,
+            $registry,
+            $formFactory,
+            $data
+        );
     }
 
     /**
@@ -57,22 +63,18 @@ class General extends Generic implements TabInterface
      */
     public function _prepareForm()
     {
-
         /** @var Awb $model */
         $model = $this->registry->registry('awb_data');
 
         /** @var Form $form */
         $form = $this->_formFactory->create();
 
-
         $fieldSet = $form->addFieldset(
             'base_fieldset',
-            ['legend' => __('Info')]
+            [
+                'legend' => __('Info')
+            ]
         );
-
-
-        if ($inputType = $model->getRecipient('recipient')) {
-        }
 
         $fieldSet->addField(
             'recipient',
@@ -85,9 +87,6 @@ class General extends Generic implements TabInterface
             ]
         );
 
-        if ($inputType = $model->getCountryId('country_id')) {
-        }
-
         $fieldSet->addField(
             'country_id',
             'text',
@@ -98,9 +97,6 @@ class General extends Generic implements TabInterface
                 'required' => true,
             ]
         );
-
-        if ($inputType = $model->getRegionId('region_id')) {
-        }
 
         $fieldSet->addField(
             'region_id',
@@ -113,9 +109,6 @@ class General extends Generic implements TabInterface
             ]
         );
 
-        if ($inputType = $model->getCity('city')) {
-        }
-
         $fieldSet->addField(
             'city',
             'text',
@@ -126,9 +119,6 @@ class General extends Generic implements TabInterface
                 'required' => true,
             ]
         );
-
-        if ($inputType = $model->getStreet('street')) {
-        }
 
         $fieldSet->addField(
             'street',
@@ -141,23 +131,6 @@ class General extends Generic implements TabInterface
             ]
         );
 
-        if ($inputType = $model->getPostcode('postcode')) {
-        }
-
-        $fieldSet->addField(
-            'postcode',
-            'text',
-            [
-                'name' => 'postcode',
-                'label' => __('Cod postal'),
-                'title' => __('Cod postal'),
-                'required' => true,
-            ]
-        );
-
-        if ($inputType = $model->getTelephone('telephone')) {
-        }
-
         $fieldSet->addField(
             'telephone',
             'text',
@@ -169,9 +142,6 @@ class General extends Generic implements TabInterface
             ]
         );
 
-        if ($inputType = $model->getCustomerEmail('customer_email')) {
-        }
-
         $fieldSet->addField(
             'customer_email',
             'text',
@@ -180,6 +150,17 @@ class General extends Generic implements TabInterface
                 'label' => __('E-mail'),
                 'title' => __('E-mail'),
                 'required' => true,
+            ]
+        );
+
+        $fieldSet->addField(
+            'postcode',
+            'text',
+            [
+                'name' => 'postcode',
+                'label' => __('Cod postal'),
+                'title' => __('Cod postal'),
+                'required' => false,
             ]
         );
 

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model;
 
@@ -53,8 +57,8 @@ class AwbRepository implements AwbRepositoryInterface
         ManagerInterface $messageManager
     ) {
         $this->resource       = $resource;
-        $this->awb         = $awb;
-        $this->AwbFactory  = $AwbFactory;
+        $this->awb            = $awb;
+        $this->AwbFactory     = $AwbFactory;
         $this->messageManager = $messageManager;
     }
 

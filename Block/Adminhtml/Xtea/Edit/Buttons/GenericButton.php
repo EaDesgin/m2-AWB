@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Buttons;
 
 use Magento\Backend\Block\Widget\Context;
@@ -17,7 +20,6 @@ abstract class GenericButton
 
     /**
      * Core registry
-     *
      * @var \Magento\Framework\Registry
      */
     private $coreRegistry = null;
@@ -42,13 +44,11 @@ abstract class GenericButton
     }
 
     /**
-     * Return Template ID
-     *
+     * Return Awb ID
      * @return int|null
      */
     public function getEntityId()
     {
-
         return $this->coreRegistry->registry('awb_data')->getId();
     }
 

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Block\Adminhtml\Xtea;
 
@@ -34,10 +38,15 @@ class Edit extends Container
         AprobaAwb $aprobaAwb,
         array $data = []
     ) {
+
         $this->coreRegistry = $registry;
         $this->duplicateButton = $duplicateButton;
         $this->aprobaAwb = $aprobaAwb;
-        parent::__construct($context, $data, $duplicateButton);
+        parent::__construct(
+            $context,
+            $data,
+            $duplicateButton
+        );
     }
 
     /**
@@ -60,11 +69,11 @@ class Edit extends Container
             'duplicate',
             $duplicate
         );
-        $aproba = $this->aprobaAwb->getButtonData();
+        $aprobaAwb = $this->aprobaAwb->getButtonData();
 
         $this->buttonList->add(
             'aproba_awb',
-            $aproba
+            $aprobaAwb
         );
 
         $this->buttonList->add(
@@ -74,17 +83,20 @@ class Edit extends Container
                 'class' => 'save',
                 'data_attribute' => [
                     'mage-init' => [
-                        'button' => ['event' => 'saveAndContinueEdit', 'target' => '#edit_form'],
+                        'button' => [
+                            'event' => 'saveAndContinueEdit',
+                            'target' => '#edit_form'
+                        ],
                     ],
                 ]
             ],
             -100
         );
 
-//        $this->buttonList->update(
-//            'delete',
-//            'label',
-//            __('Delete Template')
-//        );
+        $this->buttonList->update(
+            'delete',
+            'label',
+            __('Delete Awb')
+        );
     }
 }

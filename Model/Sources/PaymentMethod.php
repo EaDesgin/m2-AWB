@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Model\Sources;
 
@@ -18,9 +22,9 @@ class PaymentMethod extends AbstractSource
     /**
      * PaymentMethod
      */
-    const SELECT = 1;
+    const SELECT  = 1;
     const RAMBURS = 2;
-    const CONT = 3;
+    const CONT    = 3;
 
     public function __construct(
         Data $helper

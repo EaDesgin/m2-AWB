@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Helper;
 
@@ -65,7 +69,7 @@ class Data extends AbstractHelper
 
     const FREE_SHIPPING_AMOUNT = 'ea_awb/fan_courier/awb_option/free_shipping_amount';
 
-    const FiXED_AMOUNT = 'ea_awb/fan_courier/awb_option/fixed_amount';
+    const FIXED_AMOUNT = 'ea_awb/fan_courier/awb_option/fixed_amount';
 
     const CASH_ON_DELIVERY_REFUNDS = 'ea_awb/fan_courier/awb_option/cash_on_delivery_refunds';
 
@@ -81,8 +85,7 @@ class Data extends AbstractHelper
      */
     public function __construct(
         Context $context
-    )
-    {
+    ) {
         $this->config = $context->getScopeConfig();
         parent::__construct($context);
     }
@@ -224,7 +227,7 @@ class Data extends AbstractHelper
         return $this->getConfig($freeShippingAmount);
     }
 
-    public function isFixedAmount($fixedAmount = self::FiXED_AMOUNT)
+    public function isFixedAmount($fixedAmount = self::FIXED_AMOUNT)
     {
         return $this->getConfig($fixedAmount);
     }

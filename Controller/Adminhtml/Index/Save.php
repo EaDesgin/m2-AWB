@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
@@ -14,7 +18,6 @@ use Magento\Framework\Exception\LocalizedException;
 
 class Save extends Action
 {
-//    private $dataProcessor;
 
     private $dataPersistor;
 
