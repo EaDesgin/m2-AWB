@@ -16,6 +16,7 @@ class PickupId extends AbstractSource
 
     /**
      * @return array
+     * @deprecated
      */
     public function getAvailable()
     {
@@ -35,5 +36,12 @@ class PickupId extends AbstractSource
             ['value' => '201194417', 'label' => __('Depozit Marolex')],
             ['value' => '201195321', 'label' => __('Depozit EMT')],
         ];
+    }
+
+    public function toOptionArray()
+    {
+        $getAvailable = $this->getAvailable();
+
+        return $getAvailable;
     }
 }

@@ -22,9 +22,8 @@ class PaymentMethod extends AbstractSource
     /**
      * PaymentMethod
      */
-    const SELECT  = 1;
-    const RAMBURS = 2;
-    const CONT    = 3;
+    const RAMBURS = 0;
+    const CONT    = 1;
 
     public function __construct(
         Data $helper
@@ -38,7 +37,6 @@ class PaymentMethod extends AbstractSource
     public function getAvailable()
     {
         return [
-            self::SELECT => __('Select'),
             self::RAMBURS => __('Ramburs'),
             self::CONT => __('Cont Colector'),
         ];
