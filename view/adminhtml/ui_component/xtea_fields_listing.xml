@@ -321,7 +321,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Order Id</item>
+                    <item name="label" xsi:type="string" translate="true">Id comanda</item>
                 </item>
             </argument>
         </column>
@@ -349,7 +349,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Awb Number</item>
+                    <item name="label" xsi:type="string" translate="true">Numar awb</item>
                 </item>
             </argument>
         </column>
@@ -357,7 +357,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Awb Pickup</item>
+                    <item name="label" xsi:type="string" translate="true">Punct de ridicare</item>
                 </item>
             </argument>
         </column>
@@ -365,7 +365,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Recipient</item>
+                    <item name="label" xsi:type="string" translate="true">Destinatar</item>
                 </item>
             </argument>
         </column>
@@ -373,7 +373,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Region</item>
+                    <item name="label" xsi:type="string" translate="true">Localitate</item>
                 </item>
             </argument>
         </column>
@@ -381,7 +381,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Packages</item>
+                    <item name="label" xsi:type="string" translate="true">Colete</item>
                 </item>
             </argument>
         </column>
@@ -393,7 +393,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="editor" xsi:type="string">select</item>
                     <item name="dataType" xsi:type="string">select</item>
-                    <item name="label" xsi:type="string" translate="true">Delivery Payment</item>
+                    <item name="label" xsi:type="string" translate="true">Plata Expeditie</item>
                 </item>
             </argument>
         </column>
@@ -401,7 +401,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Order value</item>
+                    <item name="label" xsi:type="string" translate="true">Valuare comanda</item>
                 </item>
             </argument>
         </column>
@@ -409,20 +409,22 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Repayment value</item>
+                    <item name="label" xsi:type="string" translate="true">Cont colector</item>
                 </item>
             </argument>
         </column>
         <column name="status">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Eadesigndev\Awb\Model\Sources\StatusType</item>
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
                     <item name="label" xsi:type="string" translate="true">Status</item>
                 </item>
             </argument>
         </column>
-
-
         <actionsColumn name="actions" class="Eadesigndev\Awb\Ui\Component\Listing\Column\PostActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
