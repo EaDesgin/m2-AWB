@@ -37,6 +37,6 @@ class StatusType extends AbstractSource
      */
     public function getAvailable()
     {
-        return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
+        return [self::STATUS_ENABLED => __('Nou'), self::STATUS_DISABLED => __('Aprobat')];
     }
 }
