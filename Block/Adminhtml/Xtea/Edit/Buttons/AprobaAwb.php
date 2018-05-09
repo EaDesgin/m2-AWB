@@ -26,7 +26,7 @@ class AprobaAwb extends GenericButton implements ButtonProviderInterface
             $data = [
                 'label' => __('Aproba Awb'),
                 'class' => 'aproba_awb',
-                'on_click' => sprintf("location.href = '%s';", $this->getDuplicateUrl()),
+                'on_click' => sprintf("location.href = '%s';", $this->getAproveAwb()),
                 'sort_order' => 30,
             ];
         }
@@ -36,10 +36,10 @@ class AprobaAwb extends GenericButton implements ButtonProviderInterface
     /**
      * @return string
      */
-    public function getDuplicateUrl()
+    public function getAproveAwb()
     {
         return $this->getUrl(
-            '*/*/duplicate',
+            'shipping_awb/index/aprove',
             [
                 'entity_id' => $this->getEntityId()
             ]
