@@ -12,7 +12,7 @@ interface AwbInterface
     const IS_ACTIVE         = 'is_active';
     const CREATED_AT        = 'created_at';
     const ORDER_ID          = 'order_id';
-    const SHIPPING_ID       = 'shipping_id';
+    const SHIPPING_ID       = 'shipment_id';
     const RECIPIENT         = 'recipient';
     const COUNTRY_ID        = 'country_id';
     const REGION_ID         = 'region_id';
