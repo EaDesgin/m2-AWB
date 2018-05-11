@@ -30,18 +30,15 @@ class Save extends Action
 
     public function __construct(
         Context $context,
-//        PostDataProcessor $dataProcessor,
         DataPersistorInterface $dataPersistor,
         AwbRepository $awbRepository,
         AwbFactory $awbFactory,
         GenerateAwb $generateAwb
-    )
-    {
-//        $this->dataProcessor = $dataProcessor;
+    ) {
         $this->dataPersistor = $dataPersistor;
         $this->awbRepository = $awbRepository;
-        $this->awbFactory = $awbFactory;
-        $this->generateAwb = $generateAwb;
+        $this->awbFactory    = $awbFactory;
+        $this->generateAwb   = $generateAwb;
 
         parent::__construct($context);
     }
@@ -111,8 +108,7 @@ class Save extends Action
      * @return boolean
      */
     //@codingStandardsIgnoreLine
-    protected
-    function _isAllowed()
+    protected  function _isAllowed()
     {
         return $this->_authorization->isAllowed(Index::ADMIN_RESOURCE);
     }
