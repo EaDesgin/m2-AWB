@@ -41,6 +41,12 @@ class InstallSchema implements InstallSchemaInterface
                     'primary' => true],
                 'Entity Id'
             )->addColumn(
+                'awb_number',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => false],
+                'Awb Number'
+            )->addColumn(
                 'is_active',
                 Table::TYPE_SMALLINT,
                 null,
@@ -62,7 +68,7 @@ class InstallSchema implements InstallSchemaInterface
                     'default' => '0'],
                 'Order id'
             )->addColumn(
-                'shipping_id',
+                'shipment_id',
                 Table::TYPE_INTEGER,
                 19,
                 ['nullable' => false,

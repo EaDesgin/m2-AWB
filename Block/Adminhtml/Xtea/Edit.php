@@ -69,17 +69,11 @@ class Edit extends Container
             'duplicate',
             $duplicate
         );
-        $aprobaAwb = $this->aprobaAwb->getButtonData();
-
-        $this->buttonList->add(
-            'aproba_awb',
-            $aprobaAwb
-        );
 
         $this->buttonList->add(
             'saveandcontinue',
             [
-                'label' => __('Save and Continue Edit'),
+                'label' => __('Aproba awb'),
                 'class' => 'save',
                 'data_attribute' => [
                     'mage-init' => [

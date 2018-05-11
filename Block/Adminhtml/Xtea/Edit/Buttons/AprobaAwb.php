@@ -39,10 +39,7 @@ class AprobaAwb extends GenericButton implements ButtonProviderInterface
     public function getAproveAwb()
     {
         return $this->getUrl(
-            'shipping_awb/index/aprove',
-            [
-                'entity_id' => $this->getEntityId()
-            ]
+            'shipping_awb/index/save'
         );
     }
 }

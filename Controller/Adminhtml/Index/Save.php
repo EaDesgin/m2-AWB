@@ -6,6 +6,7 @@
 
 namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
+use Eadesigndev\Urgent\Model\GenerateAwb;
 use Eadesigndev\Awb\Model\Awb;
 use Eadesigndev\Awb\Model\AwbRepository;
 use Eadesigndev\Awb\Model\AwbFactory;
@@ -25,17 +26,19 @@ class Save extends Action
 
     private $awbFactory;
 
+    public $generateAwb;
+
     public function __construct(
         Context $context,
-//        PostDataProcessor $dataProcessor,
         DataPersistorInterface $dataPersistor,
         AwbRepository $awbRepository,
-        AwbFactory $awbFactory
+        AwbFactory $awbFactory,
+        GenerateAwb $generateAwb
     ) {
-//        $this->dataProcessor = $dataProcessor;
         $this->dataPersistor = $dataPersistor;
         $this->awbRepository = $awbRepository;
-        $this->awbFactory = $awbFactory;
+        $this->awbFactory    = $awbFactory;
+        $this->generateAwb   = $generateAwb;
 
         parent::__construct($context);
     }
@@ -63,14 +66,22 @@ class Save extends Action
             }
 
             $model->setData($data);
-
             $model->setData('update_time', time());
 
             try {
                 $this->awbRepository->save($model);
-                $this->messageManager->addSuccessMessage(__('You saved the field.'));
+                $this->messageManager->addSuccessMessage(__('You saved the awb.'));
                 $this->dataPersistor->clear('awb_data');
+
                 if ($this->getRequest()->getParam('back')) {
+                    $this->generateAwb->setGenerateAwb($id);
+                    $awbNumber = $this->generateAwb->generateAwb($id);
+                    $model->setData('awb_number', $awbNumber);
+
+                    $this->messageManager->addSuccessMessage(__('You awb '. $awbNumber .  ' number is generated.'));
+
+                    $model->setData('status', 1);
+                    $this->awbRepository->save($model);
                     return $resultRedirect
                         ->setPath('*/*/edit', ['entity_id' => $model->getId(), '_current' => true]);
                 }
@@ -97,7 +108,7 @@ class Save extends Action
      * @return boolean
      */
     //@codingStandardsIgnoreLine
-    protected function _isAllowed()
+    protected  function _isAllowed()
     {
         return $this->_authorization->isAllowed(Index::ADMIN_RESOURCE);
     }
