@@ -69,12 +69,6 @@ class EditAwb extends Container
             'duplicate',
             $duplicate
         );
-        $aprobaAwb = $this->aprobaAwb->getButtonData();
-
-        $this->buttonList->add(
-            'aproba_awb',
-            $aprobaAwb
-        );
 
         $this->buttonList->add(
             'saveandcontinue',
