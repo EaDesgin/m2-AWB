@@ -222,6 +222,32 @@ class Curier extends Generic implements TabInterface
 
         $types = $this->inputType->getAvailable();
         $fieldSet->addField(
+            'order_id',
+            'hidden',
+            [
+                'name' => 'order_id',
+                'label' => __('Order Id'),
+                'title' => __('Order Id'),
+                'values' => $types,
+                'required' => false,
+            ]
+        );
+
+        $types = $this->inputType->getAvailable();
+        $fieldSet->addField(
+            'shipment_id',
+            'hidden',
+            [
+                'name' => 'shipment_id',
+                'label' => __('Shipment Id'),
+                'title' => __('Shipment Id'),
+                'values' => $types,
+                'required' => false,
+            ]
+        );
+
+        $types = $this->inputType->getAvailable();
+        $fieldSet->addField(
             'envelopes',
             'text',
             [
