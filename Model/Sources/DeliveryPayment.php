@@ -23,9 +23,11 @@ class DeliveryPayment extends AbstractSource
      */
     public function getAvailable()
     {
-        return [
+        $deliveryPayment = [
             self::DESTINATAR => __('Destinatar'),
             self::EXPEDITOR => __('Expeditor'),
         ];
+
+        return $deliveryPayment;
     }
 }

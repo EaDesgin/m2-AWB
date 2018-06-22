@@ -36,9 +36,11 @@ class PaymentMethod extends AbstractSource
      */
     public function getAvailable()
     {
-        return [
+        $paymentMethod = [
             self::RAMBURS => __('Ramburs'),
             self::CONT => __('Cont Colector'),
         ];
+
+        return $paymentMethod;
     }
 }

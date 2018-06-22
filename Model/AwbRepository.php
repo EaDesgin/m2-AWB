@@ -26,17 +26,17 @@ class AwbRepository implements AwbRepositoryInterface
     /**
      * @var AwbResourceModel
      */
-    private $resource;
+    private $awbResourceModel;
 
     /**
      * @var AwbInterface
      */
-    private $awb;
+    private $awbInterface;
 
     /**
      * @var AwbFactory
      */
-    private $AwbFactory;
+    private $awbFactory;
 
     /**
      * @var ManagerInterface
@@ -45,41 +45,41 @@ class AwbRepository implements AwbRepositoryInterface
 
     /**
      * AwbRepository constructor.
-     * @param AwbResourceModel $resource
-     * @param AwbInterface $awb
-     * @param AwbFactory $AwbFactory
+     * @param AwbResourceModel $awbResourceModel
+     * @param AwbInterface $awbInterface
+     * @param AwbFactory $awbFactory
      * @param ManagerInterface $messageManager
      */
     public function __construct(
-        AwbResourceModel $resource,
-        AwbInterface $awb,
-        AwbFactory $AwbFactory,
+        AwbResourceModel $awbResourceModel,
+        AwbInterface $awbInterface,
+        AwbFactory $awbFactory,
         ManagerInterface $messageManager
     ) {
-        $this->resource       = $resource;
-        $this->awb            = $awb;
-        $this->AwbFactory     = $AwbFactory;
-        $this->messageManager = $messageManager;
+        $this->awbResourceModel = $awbResourceModel;
+        $this->awbInterface     = $awbInterface;
+        $this->awbFactory       = $awbFactory;
+        $this->messageManager   = $messageManager;
     }
 
     /**
-     * @param AwbInterface $awb
+     * @param AwbInterface $awbInterface
      * @return AwbInterface
      * @throws \Exception
      */
-    public function save(AwbInterface $awb)
+    public function save(AwbInterface $awbInterface)
     {
         try {
-            $this->resource->save($awb);
+            $this->awbResourceModel->save($awbInterface);
         } catch (Exception $e) {
             $this->messageManager
                 ->addExceptionMessage(
                     $e,
-                    'There was a error while saving the awb '. $e->getMessage()
+                    'There was a error while saving the awb!'. $e->getMessage()
                 );
         }
 
-        return $awb;
+        return $awbInterface;
     }
 
     /**
@@ -89,27 +89,27 @@ class AwbRepository implements AwbRepositoryInterface
     public function getById($awbId)
     {
         if (!isset($this->instances[$awbId])) {
-            $awb = $this->AwbFactory->create();
-            $this->resource->load($awb, $awbId);
+            $awb = $this->awbFactory->create();
+            $this->awbResourceModel->load($awb, $awbId);
             $this->instances[$awbId] = $awb;
         }
         return $this->instances[$awbId];
     }
 
     /**
-     * @param AwbInterface $awb
+     * @param AwbInterface $awbInterface
      * @return bool
      * @throws \Exception
      */
-    public function delete(AwbInterface $awb)
+    public function delete(AwbInterface $awbInterface)
     {
-        $id = $awb->getId();
+        $id = $awbInterface->getId();
         try {
             unset($this->instances[$id]);
-            $this->resource->delete($awb);
-        } catch (Exception $e) {
+            $this->awbResourceModel->delete($awbInterface);
+        } catch (\Exception $e) {
             $this->messageManager
-                ->addExceptionMessage($e, 'There was a error while deleting the awb');
+                ->addExceptionMessage($e, 'There was a error while deleting the awb!');
         }
         unset($this->instances[$id]);
         return true;
@@ -127,14 +127,14 @@ class AwbRepository implements AwbRepositoryInterface
     }
 
     /**
-     * @param AwbInterface $awb
+     * @param AwbInterface $awbInterface
      * @return bool
      * @throws \Exception
      */
-    public function saveAndDelete(AwbInterface $awb)
+    public function saveAndDelete(AwbInterface $awbInterface)
     {
-        $awb->setData(Data::ACTION, Data::DELETE);
-        $this->save($awb);
+        $awbInterface->setData(Data::ACTION, Data::DELETE);
+        $this->save($awbInterface);
         return true;
     }
 

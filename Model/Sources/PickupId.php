@@ -20,7 +20,7 @@ class PickupId extends AbstractSource
      */
     public function getAvailable()
     {
-        return [
+        $pickupLocation = [
             ['value' => '0',         'label' => __('Sediu')],
             ['value' => '22420',     'label' => __('Costin Paun')],
             ['value' => '24509',     'label' => __('George Popescu')],
@@ -36,6 +36,8 @@ class PickupId extends AbstractSource
             ['value' => '201194417', 'label' => __('Depozit Marolex')],
             ['value' => '201195321', 'label' => __('Depozit EMT')],
         ];
+
+        return $pickupLocation;
     }
 
     public function toOptionArray()
