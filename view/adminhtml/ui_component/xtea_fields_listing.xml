@@ -75,6 +75,27 @@
                 </item>
             </argument>
         </filterSearch>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">xtea_fields_listing.xtea_fields_listing.fields_columns.ids</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="shipping_awb/index/delete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete AWB</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected Awb?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
