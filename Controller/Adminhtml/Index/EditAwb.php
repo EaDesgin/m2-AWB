@@ -16,8 +16,9 @@ use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\Session;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Request\Http;
+use Magento\Backend\App\Action;
 
-class EditAwb extends \Magento\Backend\App\Action
+class EditAwb extends Action
 {
     /**
      * Authorization level of a basic admin session

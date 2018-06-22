@@ -7,9 +7,10 @@
 namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action\Context;
+use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+class Index extends Action
 {
     /**
      * Authorization level of a basic admin session

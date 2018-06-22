@@ -1,9 +1,14 @@
 <?php
+/**
+ * Copyright © 2018 EaDesign by Eco Active S.R.L. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace Eadesigndev\Awb\Controller\Adminhtml\Fields;
 
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Stdlib\DateTime\Filter\Date;
+use Magento\Framework\View\Model\Layout\Update\Validator;
 use Magento\Framework\View\Model\Layout\Update\ValidatorFactory;
 
 class PostDataProcessor
@@ -14,11 +19,15 @@ class PostDataProcessor
 
     private $messageManager;
 
+    private $validator;
+
     public function __construct(
         Date $dateFilter,
         ManagerInterface $messageManager,
+        Validator $validator,
         ValidatorFactory $validatorFactory
     ) {
+        $this->validator        = $validator;
         $this->dateFilter       = $dateFilter;
         $this->messageManager   = $messageManager;
         $this->validatorFactory = $validatorFactory;

@@ -19,7 +19,6 @@ use Magento\Framework\Exception\LocalizedException;
 
 class Save extends Action
 {
-
     private $dataPersistor;
 
     private $awbRepository;
@@ -91,7 +90,7 @@ class Save extends Action
             } catch (\Exception $e) {
                 $this->messageManager->addExceptionMessage(
                     $e,
-                    __('Something went wrong while saving the field.')
+                    __('Something went wrong while saving the awb.')
                 );
             }
 
