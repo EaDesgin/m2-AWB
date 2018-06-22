@@ -69,7 +69,6 @@ class Save extends Action
 
             try {
                 $this->awbRepository->save($model);
-                $this->messageManager->addSuccessMessage(__('You saved the awb.'));
                 $this->dataPersistor->clear('awb_data');
 
                 if ($this->getRequest()->getParam('back')) {
@@ -82,7 +81,7 @@ class Save extends Action
                     $model->setData('status', 1);
                     $this->awbRepository->save($model);
                     return $resultRedirect
-                        ->setPath('*/*/edit', ['entity_id' => $model->getId(), '_current' => true]);
+                        ->setPath('*/*/index', ['entity_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
