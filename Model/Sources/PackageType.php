@@ -23,9 +23,11 @@ class PackageType extends AbstractSource
      */
     public function getAvailable()
     {
-        return [
+        $packageType = [
             self::COLET => __('Colet'),
             self::PLIC => __('Plic'),
         ];
+
+        return $packageType;
     }
 }

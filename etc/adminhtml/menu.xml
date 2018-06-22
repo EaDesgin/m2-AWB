@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Eadesigndev_Awb::awb" title="AWB" module="Eadesigndev_Awb" sortOrder="10" resource="Eadesigndev_Awb::awb" parent="Eadesigndev_Eacore::eadesign"/>
+        <add id="Eadesigndev_Awb::awb" title="AWB Generator" module="Eadesigndev_Awb" sortOrder="10" resource="Eadesigndev_Awb::awb" parent="Eadesigndev_Eacore::eadesign"/>
         <add id="Eadesigndev_Awb::awb_list" title="Manage AWB List" module="Eadesigndev_Awb" sortOrder="10" parent="Eadesigndev_Awb::awb" action="shipping_awb/index" resource="Eadesigndev_Awb::awb"/>
     </menu>
 </config>

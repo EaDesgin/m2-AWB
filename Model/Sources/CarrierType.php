@@ -23,9 +23,11 @@ class CarrierType extends AbstractSource
      */
     public function getAvailable()
     {
-        return [
+        $carrierType = [
             self::URGENT_CURRIER => __('Urgent Currier'),
             self::FAN_CURRIER => __('Fan Currier'),
         ];
+
+        return $carrierType;
     }
 }

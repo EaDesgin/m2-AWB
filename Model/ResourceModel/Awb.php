@@ -12,7 +12,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\Model\ResourceModel\Db\Context;
 
 /**
- * Class Awb
+ * Class Awb Resource Model
  * @package Eadesigndev\Awb\Model\ResourceModel
  */
 class Awb extends AbstractDb

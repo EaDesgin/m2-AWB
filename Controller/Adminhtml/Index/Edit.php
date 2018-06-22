@@ -14,8 +14,9 @@ use Magento\Framework\Registry;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\Session;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Backend\App\Action;
 
-class Edit extends \Magento\Backend\App\Action
+class Edit extends Action
 {
     /**
      * Authorization level of a basic admin session
@@ -36,11 +37,14 @@ class Edit extends \Magento\Backend\App\Action
 
     private $dataHelper;
 
+    private $awbModel;
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         AwbRepositoryInterface $awbRepository,
         AwbFactory $awbFactory,
+        Awb $awbModel,
         Registry $registry,
         DataHelper $dataHelper
     ) {
@@ -49,6 +53,7 @@ class Edit extends \Magento\Backend\App\Action
         $this->awbRepository     = $awbRepository;
         $this->awbFactory        = $awbFactory;
         $this->registry          = $registry;
+        $this->awbModel          = $awbModel;
         $this->session           = $context->getSession();
         $this->dataHelper        = $dataHelper;
         parent::__construct($context);
