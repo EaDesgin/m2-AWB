@@ -142,25 +142,6 @@
                     </argument>
                 </filterInput>
             </filterRange>
-            <filterSelect name="is_active">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">is_active</item>
-                        <item name="label" xsi:type="string" translate="true">Status</item>
-                        <item name="caption" xsi:type="string" translate="true">Select...</item>
-                        <item name="options" xsi:type="array">
-                            <item name="disable" xsi:type="array">
-                                <item name="value" xsi:type="string">0</item>
-                                <item name="label" xsi:type="string" translate="true">Disabled</item>
-                            </item>
-                            <item name="enable" xsi:type="array">
-                                <item name="value" xsi:type="string">1</item>
-                                <item name="label" xsi:type="string" translate="true">Published</item>
-                            </item>
-                        </item>
-                    </item>
-                </argument>
-            </filterSelect>
             <filterSelect name="store_id">
                 <argument name="optionsProvider" xsi:type="configurableObject">
                     <argument name="class" xsi:type="string">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</argument>
