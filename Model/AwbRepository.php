@@ -8,6 +8,7 @@ namespace Eadesigndev\Awb\Model;
 
 use Eadesigndev\Awb\Api\Data\AwbInterface;
 use Eadesigndev\Awb\Api\AwbRepositoryInterface;
+use Eadesigndev\Awb\Helper\Data;
 use Eadesigndev\Awb\Model\ResourceModel\Awb as AwbResourceModel;
 use Magento\Framework\Exception\LocalizedException as Exception;
 use Magento\Framework\Message\ManagerInterface;
