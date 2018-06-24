@@ -19,6 +19,10 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Data extends AbstractHelper
 {
+    const ACTION = 'awb';
+
+    const DELETE = 3;
+
     const ENABLED = 'ea_awb/awb/enabled';
 
     const ENABLED_URGENT = 'ea_awb/urgent_courier/enabled_urgent';
