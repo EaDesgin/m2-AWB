@@ -89,7 +89,7 @@ class Save extends Action
             } catch (\Exception $e) {
                 $this->messageManager->addExceptionMessage(
                     $e,
-                    __('Something went wrong while saving the awb.')
+                    __('Something went wrong while aprove the awb.')
                 );
             }
 
