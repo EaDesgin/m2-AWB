@@ -268,7 +268,7 @@ class Curier extends Generic implements TabInterface
                 'label' => __('Value order control'),
                 'title' => __('Value order control'),
                 'values' => $types,
-                'required' => true,
+                'required' => false,
             ]
         );
 
