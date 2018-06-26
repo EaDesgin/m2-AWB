@@ -7,60 +7,14 @@
             <tab>eadesign_extensions</tab>
             <resource>Eadesigndev_Awb::configuration</resource>
             <group id="awb" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>AWB</label>
+                <label>AWB Generator</label>
                 <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
                     <comment>If enabled, awb will be customized by your settings made at "Manage AWB List".</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="urgent_courier" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Urgent Courier</label>
-                <field id="enabled_urgent" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enabled</label>
-                    <comment>If enabled, AWBs will be customized by your settings made at "Manage AWB List". Also, bulk actions to print your customized AWBs will show up in the grid.</comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="user_account_urgent" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>User Account</label>
-                </field>
-                <field id="user_password_urgent" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>User Password</label>
-                </field>
-                <field id="tariff_plan" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Tariff Plan</label>
-                    <source_model>Eadesigndev\Awb\Model\Sources\Tariff</source_model>
-                </field>
-                <field id="pickup_id" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Pick-up Id</label>
-                    <source_model>Eadesigndev\Awb\Model\Sources\PickupId</source_model>
-                </field>
-                <field id="delivery_payment_urgent" translate="label comment" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Delivery Payment</label>
-                    <source_model>Eadesigndev\Awb\Model\Sources\DeliveryPayment</source_model>
-                </field>
-                <field id="payment_method" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Payment Method</label>
-                    <source_model>Eadesigndev\Awb\Model\Sources\PaymentMethod</source_model>
-                </field>
-                <field id="open_package" translate="label comment" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Open Package</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="order_value" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Insurance</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="delivery_saturday" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Saturday Delivery</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="package_type" translate="label comment" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Package Type</label>
-                    <source_model>Eadesigndev\Awb\Model\Sources\PackageType</source_model>
-                </field>
-            </group>
-            <group id="fan_courier" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="fan_courier" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Fan Courier</label>
                 <field id="enabled_fan" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
