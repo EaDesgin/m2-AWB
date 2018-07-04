@@ -10,7 +10,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="fields_data_source" xsi:type="string">Eadesigndev\Awb\Model\ResourceModel\Collection\Grid\Collection</item>
+                <item name="awb_data_source" xsi:type="string">Eadesigndev\Awb\Model\ResourceModel\Collection\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
