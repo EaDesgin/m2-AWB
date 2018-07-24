@@ -101,13 +101,7 @@ class Curier extends Generic implements TabInterface
             $context,
             $registry,
             $formFactory,
-            $data,
-            $carrierType,
-            $paymentMethod,
-            $deliveryPayment,
-            $tariff,
-            $pickupId,
-            $inputType
+            $data
         );
     }
 
