@@ -44,8 +44,7 @@ class Edit extends Container
         $this->aprobaAwb = $aprobaAwb;
         parent::__construct(
             $context,
-            $data,
-            $duplicateButton
+            $data
         );
     }
 
