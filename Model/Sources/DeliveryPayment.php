@@ -15,8 +15,8 @@ class DeliveryPayment extends AbstractSource
     /**
      * DeliveryPayment
      */
-    const DESTINATAR = 0;
-    const EXPEDITOR = 1;
+    const EXPEDITOR = 0;
+    const DESTINATAR = 1;
 
     /**
      * @return array
@@ -24,8 +24,8 @@ class DeliveryPayment extends AbstractSource
     public function getAvailable()
     {
         $deliveryPayment = [
-            self::DESTINATAR => __('Destinatar'),
             self::EXPEDITOR => __('Expeditor'),
+            self::DESTINATAR => __('Destinatar'),
         ];
 
         return $deliveryPayment;
