@@ -21,8 +21,8 @@ class PickupId extends AbstractSource
     public function getAvailable()
     {
         $pickupLocation = [
-            ['value' => '0',         'label' => __('Sediu')],
             ['value' => '22420',     'label' => __('Costin Paun')],
+            ['value' => '0',         'label' => __('Sediu')],
             ['value' => '24509',     'label' => __('George Popescu')],
             ['value' => '24510',     'label' => __('Mihaita Budaca')],
             ['value' => '1001085',   'label' => __('AGT')],
