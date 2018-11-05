@@ -15,7 +15,7 @@ class Tariff extends AbstractSource
     /**
      * Tariff
      */
-    const ACT = 48654;
+    const ACT = 84828;
     const MKT = 64252;
 
     /**
@@ -24,7 +24,7 @@ class Tariff extends AbstractSource
     public function getAvailable()
     {
         $tariffPlan = [
-            self::ACT => __('ACT ADD 02.03.2017'),
+            self::ACT => __('Act Add 01.11.2018'),
             self::MKT => __('Tarif MKT Place 5106'),
         ];
 
