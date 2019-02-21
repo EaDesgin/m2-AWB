@@ -21,20 +21,17 @@ class PickupId extends AbstractSource
     public function getAvailable()
     {
         $pickupLocation = [
-            ['value' => '22420',     'label' => __('Costin Paun')],
-            ['value' => '0',         'label' => __('Sediu')],
-            ['value' => '24509',     'label' => __('George Popescu')],
-            ['value' => '24510',     'label' => __('Mihaita Budaca')],
-            ['value' => '1001085',   'label' => __('AGT')],
-            ['value' => '1002762',   'label' => __('Ionut Burlacu')],
-            ['value' => '201003906', 'label' => __('Robert Chirculescu')],
-            ['value' => '201156779', 'label' => __('Felco')],
-            ['value' => '201157222', 'label' => __('Keiron Al-Ko')],
-            ['value' => '201162606', 'label' => __('Keiron Iasi Husqvarna')],
-            ['value' => '201173065', 'label' => __('Depozit Honda')],
-            ['value' => '201189622', 'label' => __('Nicoro Romania')],
-            ['value' => '201194417', 'label' => __('Depozit Marolex')],
+            ['value' => '1001085',   'label' => __('Depozit AGT')],
+            ['value' => '201239786',   'label' => __('Depozit Dakard')],
             ['value' => '201195321', 'label' => __('Depozit EMT')],
+            ['value' => '201156779', 'label' => __('Depozit Felco')],
+            ['value' => '201214339', 'label' => __('Depozit Fiskars')],
+            ['value' => '201173065', 'label' => __('Depozit Honda')],
+            ['value' => '201194417', 'label' => __('Depozit Marolex')],
+            ['value' => '201251525', 'label' => __('Depozit Proenerg')],
+            ['value' => '201252060', 'label' => __('Depozit Proenerg Cernica')],
+            ['value' => '201240279', 'label' => __('Depozit Scule')],
+            ['value' => '201198698', 'label' => __('Depozit SOLO')],
         ];
 
         return $pickupLocation;
