@@ -21,6 +21,7 @@ class PickupId extends AbstractSource
     public function getAvailable()
     {
         $pickupLocation = [
+            ['value' => '22420',   'label' => __('Magazia Lu Costica - Online')],
             ['value' => '1001085',   'label' => __('Depozit AGT')],
             ['value' => '201239786', 'label' => __('Depozit Dakard')],
             ['value' => '201195321', 'label' => __('Depozit EMT')],
