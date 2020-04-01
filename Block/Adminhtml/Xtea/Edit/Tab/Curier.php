@@ -10,7 +10,7 @@ use Eadesigndev\Awb\Model\Sources\CarrierType;
 use Eadesigndev\Awb\Model\Sources\PaymentMethod;
 use Eadesigndev\Awb\Model\Sources\DeliveryPayment;
 use Eadesigndev\Awb\Model\Sources\Tariff;
-use Eadesigndev\Awb\Model\Sources\PickupId;
+use Eadesigndev\Urgent\Model\Sources\PickupId;
 use Eadesigndev\Awb\Model\Sources\InputType;
 use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
