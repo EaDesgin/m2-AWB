@@ -6,6 +6,8 @@
 
 namespace Eadesigndev\Awb\Model\Sources;
 
+use Eadesigndev\Urgent\Helper\ConnectUrgent;
+
 /**
  * Class Tariff
  * @package Eadesigndev\Awb\ModelSource
@@ -13,21 +15,47 @@ namespace Eadesigndev\Awb\Model\Sources;
 class Tariff extends AbstractSource
 {
     /**
-     * Tariff
+     * @var ConnectUrgent
      */
-    const ACT = 84828;
-    const MKT = 64252;
+    private $connectUrgent;
+
+    /**
+     * Tariff constructor.
+     * @param ConnectUrgent $connectUrgent
+     */
+    public function __construct(
+        ConnectUrgent $connectUrgent
+    ) {
+        $this->connectUrgent     = $connectUrgent;
+    }
+
+    /**
+     * @param $array
+     * @param $key
+     * @param $value
+     * @return array
+     */
+    public function toOptionArrayReplaceList($array, $key, $value): ?array
+    {
+        if (!empty($array)) {
+            $return = [];
+            foreach ($array as $element) {
+                $return[$element[$key]] = $element[$value];
+            }
+            return $return;
+        }
+    }
 
     /**
      * @return array
      */
-    public function getAvailable()
+    public function getAvailable(): array
     {
-        $tariffPlan = [
-            self::ACT => __('Act Add 01.11.2018'),
-            self::MKT => __('Tarif MKT Place 5106'),
-        ];
-
-        return $tariffPlan;
+        $connectUrgent = $this->connectUrgent;
+        $tariffPlan = $connectUrgent->connect('PriceTables', \Zend_Http_Client::GET);
+        if ($tariffPlan != '"Failed to authenticate!"') {
+            return $this->toOptionArrayReplaceList($tariffPlan, 'PriceTableId', 'Name');
+        }
+        return ['0'=> 'Failed to authenticate!'];
     }
 }

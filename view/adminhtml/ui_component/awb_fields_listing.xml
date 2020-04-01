@@ -287,7 +287,7 @@
         </column>
         <column name="awb_pickup_id">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Eadesigndev\Awb\Model\Sources\PickupId</item>
+                <item name="options" xsi:type="object">Eadesigndev\Urgent\Model\Sources\PickupId</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
