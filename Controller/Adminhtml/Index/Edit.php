@@ -4,7 +4,7 @@
  * See LICENSE for license details.
  */
 
-namespace Eadesigndev\AWB\Controller\Adminhtml\Index;
+namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
 use Eadesigndev\Awb\Api\AwbRepositoryInterface;
 use Eadesigndev\Awb\Model\Awb;
