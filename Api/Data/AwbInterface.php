@@ -155,5 +155,4 @@ interface AwbInterface
     public function setStatus($status);
 
     public function setDeliveryCompany($deliveryCompany);
-
 }

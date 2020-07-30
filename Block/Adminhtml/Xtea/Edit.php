@@ -38,7 +38,6 @@ class Edit extends Container
         AprobaAwb $aprobaAwb,
         array $data = []
     ) {
-
         $this->coreRegistry = $registry;
         $this->duplicateButton = $duplicateButton;
         $this->aprobaAwb = $aprobaAwb;

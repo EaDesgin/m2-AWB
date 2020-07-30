@@ -23,7 +23,7 @@ class DuplicateButton extends GenericButton implements ButtonProviderInterface
          */
         $data = [];
         if ($this->_isAllowedAction(Index::ADMIN_RESOURCE)) {
-                $data = [
+            $data = [
                     'label' => __('Duplicate'),
                     'class' => 'duplicate',
                     'on_click' => sprintf("location.href = '%s';", $this->getDuplicateUrl()),

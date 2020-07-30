@@ -10,10 +10,12 @@ use Eadesigndev\Awb\Model\Sources\CarrierType;
 use Eadesigndev\Awb\Model\Sources\PaymentMethod;
 use Eadesigndev\Awb\Model\Sources\DeliveryPayment;
 use Eadesigndev\Awb\Model\Sources\Tariff;
-use Eadesigndev\Urgent\Model\Sources\PickupId;
+use Eadesigndev\Nemo\Model\Sources\PickupId;
+use Eadesigndev\Nemo\Helper\Data;
 use Eadesigndev\Awb\Model\Sources\InputType;
 use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
+use Magento\Framework\App\Request\Http;
 use Magento\Framework\Data\Form;
 use Magento\Framework\Data\FormFactory;
 use Magento\Framework\Phrase;
@@ -26,7 +28,7 @@ use Magento\Store\Model\System\Store as SystemStore;
  * Class Curier
  * @package Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab
  */
-class Curier extends Generic implements TabInterface
+class CurierNemo extends Generic implements TabInterface
 {
     /**
      * @var CarrierType
@@ -73,7 +75,13 @@ class Curier extends Generic implements TabInterface
      */
     private $registry;
 
+    /**
+     * @var Data
+     */
+    private $helperData;
+
     public function __construct(
+        Http $request,
         Context $context,
         Registry $registry,
         FormFactory $formFactory,
@@ -85,8 +93,10 @@ class Curier extends Generic implements TabInterface
         Tariff $tariff,
         PickupId $pickupId,
         InputType $inputType,
+        Data $helperData,
         array $data = []
     ) {
+        $this->request         = $request;
         $this->registry        = $registry;
         $this->yesNo           = $yesNo;
         $this->systemStore     = $systemStore;
@@ -96,6 +106,7 @@ class Curier extends Generic implements TabInterface
         $this->tariff          = $tariff;
         $this->pickupId        = $pickupId;
         $this->inputType       = $inputType;
+        $this->helperData      = $helperData;
 
         parent::__construct(
             $context,
@@ -119,10 +130,16 @@ class Curier extends Generic implements TabInterface
 
         $fieldSet = $form->addFieldset(
             'base_fieldset',
-            ['legend' => __('Info')]
+            ['legend' => __('Info - Nemo Express')]
         );
 
         $types = $this->carrierType->getAvailable();
+
+        $carrierType = $this->request->getParam('carrier_id');
+        if (!$carrierType) {
+            $carrierType = $model->getData('carrier_id');
+        }
+        $typeC[$carrierType] = $types[$carrierType];
         $fieldSet->addField(
             'carrier_id',
             'select',
@@ -130,37 +147,14 @@ class Curier extends Generic implements TabInterface
                 'name' => 'carrier_id',
                 'label' => __('Carrier'),
                 'title' => __('Carrier'),
-                'values' => $types,
+                'values' => $typeC,
+                'value' => $carrierType,
                 'required' => true,
                 'readonly' => true,
             ]
         );
 
-        $types = $this->paymentMethod->getAvailable();
-        $fieldSet->addField(
-            'payment_method',
-            'select',
-            [
-                'name' => 'payment_method',
-                'label' => __('Payment Method(Collector account/Standard)'),
-                'title' => __('Payment Method(Collector account/Standard)'),
-                'values' => $types,
-                'required' => true,
-            ]
-        );
-
-        $types = $this->tariff->getAvailable();
-        $fieldSet->addField(
-            'tariff_plan',
-            'select',
-            [
-                'name' => 'tariff_plan',
-                'label' => __('Tariff plan'),
-                'title' => __('Tariff plan'),
-                'values' => $types,
-                'required' => true,
-            ]
-        );
+        $defaultPickupId = $this->helperData->getPickupId();
 
         $types = $this->pickupId->getAvailable();
         $fieldSet->addField(
@@ -170,19 +164,7 @@ class Curier extends Generic implements TabInterface
                 'name' => 'awb_pickup_id',
                 'label' => __('Awb Pickup Id'),
                 'title' => __('Awb Pickup Id'),
-                'values' => $types,
-                'required' => true,
-            ]
-        );
-
-        $types = $this->deliveryPayment->getAvailable();
-        $fieldSet->addField(
-            'delivery_payment',
-            'select',
-            [
-                'name' => 'delivery_payment',
-                'label' => __('Delivery Payment(Sender/Consignee)'),
-                'title' => __('Delivery Payment (Sender/Consignee)'),
+                'value' => $defaultPickupId,
                 'values' => $types,
                 'required' => true,
             ]
@@ -240,31 +222,6 @@ class Curier extends Generic implements TabInterface
             ]
         );
 
-        $types = $this->inputType->getAvailable();
-        $fieldSet->addField(
-            'envelopes',
-            'text',
-            [
-                'name' => 'envelopes',
-                'label' => __('Envelopes'),
-                'title' => __('Envelopes'),
-                'values' => $types,
-                'required' => false,
-            ]
-        );
-
-        $types = $this->inputType->getAvailable();
-        $fieldSet->addField(
-            'order_value',
-            'text',
-            [
-                'name' => 'order_value',
-                'label' => __('Value order control'),
-                'title' => __('Value order control'),
-                'values' => $types,
-                'required' => false,
-            ]
-        );
 
         $types = $this->inputType->getAvailable();
         $fieldSet->addField(
@@ -292,29 +249,6 @@ class Curier extends Generic implements TabInterface
             ]
         );
 
-        $fieldSet->addField(
-            'delivery_saturday',
-            'select',
-            [
-                'name' => 'delivery_saturday',
-                'label' => __('Saturday delivery'),
-                'title' => __('Saturday delivery'),
-                'values' => $this->yesNo->toOptionArray(),
-                'required' => true,
-            ]
-        );
-
-        $fieldSet->addField(
-            'open_package',
-            'select',
-            [
-                'name' => 'open_package',
-                'label' => __('Open package'),
-                'title' => __('Open package'),
-                'values' => $this->yesNo->toOptionArray(),
-                'required' => true,
-            ]
-        );
 
         $types = $this->inputType->getAvailable();
         $fieldSet->addField(

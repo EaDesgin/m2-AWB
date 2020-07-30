@@ -17,6 +17,7 @@ class CarrierType extends AbstractSource
      */
     const URGENT_CURRIER = 0;
     const FAN_CURRIER = 1;
+    const NEMO_EXPRESS = 2;
 
     /**
      * @return array
@@ -26,6 +27,7 @@ class CarrierType extends AbstractSource
         $carrierType = [
             self::URGENT_CURRIER => __('Urgent Currier'),
             self::FAN_CURRIER => __('Fan Currier'),
+                      self::NEMO_EXPRESS => __('Nemo Express'),
         ];
 
         return $carrierType;

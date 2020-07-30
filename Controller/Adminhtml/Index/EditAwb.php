@@ -53,7 +53,6 @@ class EditAwb extends Action
         DataHelper $dataHelper,
         Http $request
     ) {
-
         $this->request           = $request;
         $this->resultPageFactory = $resultPageFactory;
         $this->awbRepository     = $awbRepository;
