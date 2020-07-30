@@ -7,6 +7,7 @@
 namespace Eadesigndev\Awb\Controller\Adminhtml\Index;
 
 use Eadesigndev\Urgent\Model\GenerateAwb;
+use Eadesigndev\Nemo\Model\GenerateAwbNemo;
 use Eadesigndev\Awb\Model\Awb;
 use Eadesigndev\Awb\Model\AwbRepository;
 use Eadesigndev\Awb\Model\AwbFactory;
@@ -16,6 +17,7 @@ use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Sales\Api\Data\OrderInterface;
 
 class Save extends Action
 {
@@ -27,17 +29,25 @@ class Save extends Action
 
     public $generateAwb;
 
+    public $generateAwbNemo;
+
+    private $order;
+
     public function __construct(
         Context $context,
         DataPersistorInterface $dataPersistor,
         AwbRepository $awbRepository,
         AwbFactory $awbFactory,
-        GenerateAwb $generateAwb
+        GenerateAwb $generateAwb,
+        GenerateAwbNemo $generateAwbNemo,
+        OrderInterface $order
     ) {
         $this->dataPersistor = $dataPersistor;
         $this->awbRepository = $awbRepository;
         $this->awbFactory    = $awbFactory;
         $this->generateAwb   = $generateAwb;
+        $this->generateAwbNemo   = $generateAwbNemo;
+        $this->order = $order;
 
         parent::__construct($context);
     }
@@ -51,6 +61,9 @@ class Save extends Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+        $carrierId = $data['carrier_id'];
+        $orderId = $this->order->loadByIncrementId($data['order_id'])->getId();
+
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
@@ -72,16 +85,30 @@ class Save extends Action
                 $this->dataPersistor->clear('awb_data');
 
                 if ($this->getRequest()->getParam('back')) {
-                    $this->generateAwb->setGenerateAwb($id);
-                    $awbNumber = $this->generateAwb->generateAwb($id);
-                    $model->setData('awb_number', $awbNumber);
+                    if ($carrierId == 2) {
+                        $this->generateAwbNemo->setGenerateAwb($id);
+                        $pickupId = $this->getRequest()->getParam('awb_pickup_id');
+                        $awbNumber = $this->generateAwbNemo->generateAwb($id, $orderId, $pickupId);
+                        $model->setData('awb_number', $awbNumber);
 
-                    $this->messageManager->addSuccessMessage(__('You awb '. $awbNumber .  ' number is generated.'));
+                        $this->messageManager->addSuccessMessage(__('You NEMO COURIER awb '. $awbNumber .  ' number is generated.'));
 
-                    $model->setData('status', 1);
-                    $this->awbRepository->save($model);
-                    return $resultRedirect
-                        ->setPath('*/*/index', ['entity_id' => $model->getId(), '_current' => true]);
+                        $model->setData('status', 1);
+                        $this->awbRepository->save($model);
+                        return $resultRedirect
+                                                ->setPath('*/*/index', ['entity_id' => $model->getId(), '_current' => true]);
+                    } else {
+                        $this->generateAwb->setGenerateAwb($id);
+                        $awbNumber = $this->generateAwb->generateAwb($id);
+                        $model->setData('awb_number', $awbNumber);
+
+                        $this->messageManager->addSuccessMessage(__('You awb '. $awbNumber .  ' number is generated.'));
+
+                        $model->setData('status', 1);
+                        $this->awbRepository->save($model);
+                        return $resultRedirect
+                                                ->setPath('*/*/index', ['entity_id' => $model->getId(), '_current' => true]);
+                    }
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
@@ -106,7 +133,7 @@ class Save extends Action
      * @return boolean
      */
     //@codingStandardsIgnoreLine
-    protected  function _isAllowed()
+    protected function _isAllowed()
     {
         return $this->_authorization->isAllowed(Index::ADMIN_RESOURCE);
     }

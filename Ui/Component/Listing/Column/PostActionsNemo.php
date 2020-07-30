@@ -11,10 +11,11 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
-class PostActions extends Column
+class PostActionsNemo extends Column
 {
     /** Url path */
     const AWB_TEMPLATE_EDIT = 'shipping_awb/index/edit';
+    const AWB_NEMO_TEMPLATE_EDIT = 'shipping_awb_nemo/index/edit';
     const AWB_TEMPLATE_DELETE = 'shipping_awb/index/delete';
 
 
@@ -40,11 +41,13 @@ class PostActions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = [],
-        $editUrl = self::AWB_TEMPLATE_EDIT
+        $editUrl = self::AWB_TEMPLATE_EDIT,
+        $editUrlNemo = self::AWB_NEMO_TEMPLATE_EDIT
     ) {
-        $this->urlBuilder = $urlBuilder;
-        $this->editUrl = $editUrl;
-        parent::__construct($context, $uiComponentFactory, $components, $data);
+        $this -> urlBuilder = $urlBuilder;
+        $this -> editUrl = $editUrl;
+        $this -> editUrlNemo = $editUrlNemo;
+        parent ::__construct($context, $uiComponentFactory, $components, $data);
     }
 
     /**
@@ -57,14 +60,20 @@ class PostActions extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
-                $name = $this->getData('name');
+                $name = $this -> getData('name');
                 if (isset($item['entity_id'])) {
                     $item[$name]['edit'] = [
-                        'href' => $this->urlBuilder->getUrl(
-                            $this->editUrl,
+                        'href' => $this -> urlBuilder -> getUrl(
+                            $this -> editUrlNemo,
                             ['entity_id' => $item['entity_id']]
                         ),
                         'label' => __('Edit')
+                    ];
+
+                    $item[$name]['print'] = [
+                        'target' => '_blank',
+                        'href' => 'https://app.nemoexpress.ro/nemo/Main?menu=awbs&id=' . $item['awb_number'] . '&printPDF=true',
+                        'label' => __('Print')
                     ];
                 }
             }

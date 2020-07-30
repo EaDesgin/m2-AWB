@@ -16,7 +16,6 @@ use Magento\Framework\Registry;
 
 class Awb extends AbstractModel implements AwbInterface
 {
-
     public function __construct(
         Context $context,
         Registry $registry,
@@ -328,7 +327,4 @@ class Awb extends AbstractModel implements AwbInterface
     {
         $this->setData(AwbInterface::DELIVERY_COMPANY, $deliveryCompany);
     }
-
-
-
 }

@@ -13,7 +13,6 @@ namespace Eadesigndev\Awb\Model\Sources;
  */
 class StatusType extends AbstractSource
 {
-
     const STATUS_ENABLED  = 0;
     const STATUS_DISABLED = 1;
 

@@ -23,7 +23,6 @@ class Collection extends AbstractCollection
      */
     public function _construct()
     {
-
         $this->_init(
             AwbModel::class,
             AwbResourceModel::class

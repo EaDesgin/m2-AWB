@@ -48,7 +48,6 @@ class Edit extends Action
         Registry $registry,
         DataHelper $dataHelper
     ) {
-
         $this->resultPageFactory = $resultPageFactory;
         $this->awbRepository     = $awbRepository;
         $this->awbFactory        = $awbFactory;

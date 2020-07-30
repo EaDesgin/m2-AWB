@@ -20,7 +20,7 @@ use Magento\Store\Model\System\Store as SystemStore;
  * Class General
  * @package Eadesigndev\Awb\Block\Adminhtml\Xtea\Edit\Tab
  */
-class General extends Generic implements TabInterface
+class GeneralNemo extends Generic implements TabInterface
 {
     /**
      * @var Yesno
@@ -72,7 +72,7 @@ class General extends Generic implements TabInterface
         $fieldSet = $form->addFieldset(
             'base_fieldset',
             [
-                'legend' => __('Info')
+                'legend' => __('Info - Nemo Express')
             ]
         );
 
